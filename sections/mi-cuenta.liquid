@@ -1,0 +1,150 @@
+<div class="micuenta d-flex w-100 flex-column justify-content-center align-items-center mt-4 pt-1 pt-lg-5">
+  <div class="heading d-flex w-75 justify-content-between align-items-center">
+    <h4>Mi cuenta <span class="d-flex align-items-center" style="font-size:10pt;color:grey;">{% if customer.email %} {{ customer.email }}{% endif %}</span></h4>
+    <a href="{{ routes.account_logout_url }}">
+      Cerrar sesión
+    </a>
+  </div>
+
+  <div class="d-flex w-75 mt-4 flex-column flex-lg-row justify-content-lg-between justify-content-start align-items-start">
+
+    <div class="mb-2">
+      <h4>Pedidos</h4>
+
+      {% paginate customer.orders by 20 %}
+        {%- if customer.orders.size > 0 -%}
+          <table role="table" class="order-history">
+            <caption class="visually-hidden">{{ 'customer.orders.title' | t }}</caption>
+            <thead role="rowgroup">
+              <tr role="row">
+                <th class="pe-4 text-muted" id="ColumnOrder" scope="col" role="columnheader">Número</th>
+                <th class="pe-4 text-muted" id="ColumnDate" scope="col" role="columnheader">Fecha</th>
+                <th class="pe-4 text-muted" id="ColumnPayment" scope="col" role="columnheader">Estado del pago</th>
+                <th class="pe-4 text-muted" id="ColumnFulfillment" scope="col" role="columnheader">Estado del pedido</th>
+                <th class="pe-4 text-muted" id="ColumnTotal" scope="col" role="columnheader">Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody role="rowgroup">
+              {%- for order in customer.orders -%}
+                <tr role="row">
+                  <td
+                    id="RowOrder"
+                    role="cell"
+                    headers="ColumnOrder"
+                    data-label="Número"
+                    class="pe-4"
+                  >
+                    <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' }}">
+                      {{ order.name }}
+                    </a>
+                  </td>
+                  <td class="pe-4" headers="RowOrder ColumnDate" role="cell" data-label="fecha">
+                    {{ order.created_at | time_tag: format: 'date' }}
+                  </td>
+                  <td class="pe-4" headers="RowOrder ColumnPayment" role="cell" data-label="Estado del pago">
+                    <span {% if order.cancelled %}class="text-danger"{% endif %}{% if order.financial_status == "pending" %}class="text-primary"{% endif %} >
+                    {{ order.financial_status_label }}
+                    </span>
+                  </td>
+                  <td class="pe-4" headers="RowOrder ColumnFulfillment" role="cell" data-label="Estado del pedido">
+                    <span {% if order.fulfillment_status == "unfulfilled" %}class="text-warning"{% endif %}>
+                    {{ order.fulfillment_status_label }}
+                    </span>
+                  </td>
+                  <td class="pe-4" headers="RowOrder ColumnTotal" role="cell" data-label="Total">
+                    {{ order.total_price | money_with_currency }}</td>
+                  <td class="pe-4">
+                    <a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' }}">
+                  		<i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                  </td>
+                </tr>
+              	{% if order.cancelled %}Orden cancelada el: {{ order.cancelled_at }} por el motivo: {{ order.cancel_reason_label }}{% endif %}
+              {%- endfor -%}
+            </tbody>
+          </table>
+        {%- else -%}
+          <p>No has hecho ningún pedido</p>
+        {%- endif -%}
+
+        {%- if paginate.pages > 1 -%}
+          {%- if paginate.parts.size > 0 -%}
+              <nav class="pagination" role="navigation" aria-label="Navegación">
+                <ul role="list">
+                {%- if paginate.previous -%}
+                  <li>
+                    <a href="{{ paginate.previous.url }}" aria-label="Anterior">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                      </svg>
+                    </a>
+                  </li>
+                {%- endif -%}
+
+                {%- for part in paginate.parts -%}
+                  <li>
+                    {%- if part.is_link -%}
+                      <a href="{{ part.url }}" aria-label="Página">{{ part.title }}</a>
+                    {%- else -%}
+                      {%- if part.title == paginate.current_page -%}
+                        <span aria-current="page" aria-label="Página">{{ part.title }}</span>
+                      {%- else -%}
+                        <span>{{ part.title }}</span>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </li>
+                {%- endfor -%}
+
+                {%- if paginate.next -%}
+                  <li>
+                    <a href="{{ paginate.next.url }}" aria-label="Siguiente" >
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                      </svg>
+                    </a>
+                  </li>
+                {%- endif -%}
+                </ul>
+              </nav>
+          {%- endif -%}
+        {%- endif -%}
+      {% endpaginate %}
+    </div>
+    
+    <div>
+      <h4>Detalles</h4>
+		
+      Dirección principal:
+      <span class="text-muted">{{ customer.default_address | format_address }}</span>
+
+      <a href="{{ routes.account_addresses_url }}">
+        Administrar direcciones ({{ customer.addresses_count }})
+      </a>
+    </div>
+    
+  </div>
+  
+</div>
+
+<div class="micuenta d-flex flex-column justify-content-center align-items-center w-100">
+  
+  <hr class="m-5 w-75">
+  <a href="pages/spurit-subscriptions">
+    <h5>Ver mis suscripciones</h5>
+  </a>
+  
+</div>
+
+{% schema %}
+{
+  "name": "account",
+  "settings": [
+],
+  "presets": [
+    {
+      "name": "account"
+    }
+  ]
+}
+{% endschema %}

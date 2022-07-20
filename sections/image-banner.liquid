@@ -1,0 +1,41 @@
+
+<div class="head_image d-none d-md-block">
+  {%- if section.settings.image_banner != blank -%}
+  <img src="{{ section.settings.image_banner | image_url }}">
+  {% else %}
+  <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/contacto_banner.png?v=1651267479">
+  {%- endif -%}
+</div>
+
+<div class="head_image d-block d-md-none">
+  {%- if section.settings.image_banner2 != blank -%}
+  <img src="{{ section.settings.image_banner2 | image_url }}">
+  {% else %}
+  <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/contacto_banner.png?v=1651267479">
+  {%- endif -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "image banner",
+  "settings": [
+{
+	"type": "image_picker",
+	"id": "image_banner",
+	"label": "Imagen banner"
+},
+{
+	"type": "image_picker",
+	"id": "image_banner2",
+	"label": "Imagen banner móvil"
+}
+],
+  "presets": [
+    {
+      "name": "image banner",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

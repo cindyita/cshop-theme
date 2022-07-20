@@ -1,0 +1,43 @@
+<a name="conocenos"></a>
+<div data-aos="fade-up" class="section3">
+  <div class="d-flex flex-md-row flex-column justify-content-center align-items-center">
+    <div class="me-1 p-1 me-md-3 p-md-3 me-lg-5 pe-lg-5 s3_text">
+      <h4>
+        {{ section.settings.description }}
+      </h4>
+    </div>
+    <div class="s3_img">
+      {%- if section.settings.img_description != blank -%}
+      <img src="{{ section.settings.img_description | image_url}}" alt="crudog" class="w-100">
+      {% else %}
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/s3_img.png?v=1651267479" alt="crudog" class="w-100">
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "section3",
+  "settings": [
+{
+  "type": "text",
+    "id": "description",
+    "label": "Descripción",
+	"default": "En Crudog queremos brindar confianza y seguridad con la garantía de que la elaboración de nuestros productos se realiza con los ingredientes de la más alta calidad, cuidamos la alimentación de tu mascota para que tenga una vida más saludable."
+},
+{
+	"type": "image_picker",
+	"id": "img_description",
+	"label": "Imagen descripción"
+}
+],
+  "presets": [
+    {
+      "name": "section3",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+
+<div data-aos="fade-up" class="w-100 pb-4 pb-lg-5 section1">
+
+    <h2 class="text-center">
+      {{section.settings.text_section_1}}
+    </h2>
+    <div class="foots_1">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huellaazul.png?v=1651267479" class="foot1">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huellaazul.png?v=1651267479" class="foot2">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huellaazul.png?v=1651267479" class="foot3">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huellaazul.png?v=1651267479" class="foot4">
+    </div>
+  
+
+  </div>
+
+{% schema %}
+{
+  "name": "section1",
+  "settings": [
+{
+  "type": "text",
+    "id": "text_section_1",
+    "label": "Texto",
+	"default": "Para nosotros es sumamente <br> importante ofrecer a tus mascotas <br> una alimentación sana y balanceada <br> a través de nuestros productos."
+}
+],
+  "presets": [
+    {
+      "name": "section1",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+  

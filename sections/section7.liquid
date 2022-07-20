@@ -1,0 +1,219 @@
+
+<div  data-aos="flip-left" class="section7" style="background-image:url('https://cdn.shopify.com/s/files/1/0639/0264/6525/files/s7_img.png?v=1651267479');background-repeat:no-repeat; background-size: cover; background-position: top center;">
+
+  <div class="s7_slider d-flex justify-content-center flex-column text-center align-items-center">
+
+    <h1>{{ section.settings.heading }}</h1>
+    <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logocrudog_bco.png?v=1653313884">
+    
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+
+            <div class="s7cont_shape">
+              <div class="s7_test1">
+                
+                {%- if section.settings.test_img1 != blank -%}
+                <img src="{{ section.settings.test_img1 | image_url}}">
+                {% else %}
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/test_1.png?v=1651267479">
+                {%- endif -%}
+                
+              </div>
+
+              <div class="s7_shape">
+                <p>
+                  {{ section.settings.text1 }}
+                  
+                </p>
+              </div>
+            </div>
+
+        </div>
+          <div class="swiper-slide">
+
+            <div class="s7cont_shape">
+              <div class="s7_test1">
+                {%- if section.settings.test_img2 != blank -%}
+                <img src="{{ section.settings.test_img2 | image_url}}">
+                {% else %}
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/Enmascarar_grupo_13.png?v=1652718181">
+                {%- endif -%}
+              </div>
+
+              <div class="s7_shape">
+                <p>
+                  {{ section.settings.text2 }}
+                  </p>
+              </div>
+            </div>
+
+        </div>
+          <div class="swiper-slide">
+
+            <div class="s7cont_shape">
+              <div class="s7_test1">
+                {%- if section.settings.test_img3 != blank -%}
+                <img src="{{ section.settings.test_img3 | image_url}}">
+                {% else %}
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/Enmascarar_grupo_15_1.png?v=1653084354">
+                {%- endif -%}
+              </div>
+
+              <div class="s7_shape">
+                <p>
+                  {{ section.settings.text3 }}
+                   </p>
+              </div>
+            </div>
+
+        </div>
+          <div class="swiper-slide">
+
+            <div class="s7cont_shape">
+              <div class="s7_test1">
+                {%- if section.settings.test_img4 != blank -%}
+                <img src="{{ section.settings.test_img4 | image_url}}">
+                {% else %}
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/Enmascarar_grupo_17_1.png?v=1653084354">
+                {%- endif -%}
+              </div>
+
+              <div class="s7_shape">
+                <p>
+                  {{ section.settings.text4 }}
+                   </p>
+              </div>
+            </div>
+
+        </div>
+          <div class="swiper-slide">
+
+            <div class="s7cont_shape">
+              <div class="s7_test1">
+                {%- if section.settings.test_img5 != blank -%}
+                <img src="{{ section.settings.test_img5 | image_url}}">
+                {% else %}
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/Enmascarar_grupo_16_1.png?v=1653084354">
+                {%- endif -%}
+              </div>
+
+              <div class="s7_shape">
+                <p>
+                  {{ section.settings.text5 }}
+                   </p>
+              </div>
+            </div>
+
+        </div>
+          
+        </div>
+        <div class="swiper-pagination"></div>
+        
+      </div>
+      
+     
+
+  </div>
+
+</div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper3 = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+
+{% schema %}
+{
+  "name": "section7",
+  "settings": [
+{
+	"type": "text",
+	"id": "heading",
+	"label": "Cabecera",
+	"default": "Testimonios"
+},
+{
+	"type": "image_picker",
+	"id": "test_img1",
+	"label": "Imagen testimonio 1"
+},
+{
+	"type": "image_picker",
+	"id": "test_img2",
+	"label": "Imagen testimonio 2"
+},
+{
+	"type": "image_picker",
+	"id": "test_img3",
+	"label": "Imagen testimonio 3"
+},
+{
+	"type": "image_picker",
+	"id": "test_img4",
+	"label": "Imagen testimonio 4"
+},
+{
+	"type": "image_picker",
+	"id": "test_img5",
+	"label": "Imagen testimonio 5"
+},
+{
+	"type": "text",
+	"id": "text1",
+	"label": "Testimonio 1",
+	"default": "\“Estoy feliz con el alimento Crudog, lo que más me gusta es lo emocionado que se pone Berlín. Cada vez que abro el congelador él se prepara esperando que le saque su comida.\” - Karla"
+},
+{
+	"type": "text",
+	"id": "text2",
+	"label": "Testimonio 2",
+	"default": "\“Mi perra Mila es una gran danés y siempre hemos tenido complicaciones con su comida ya que es muy delicada del estómago. Antes le dábamos alimento de carne cruda pero el olor y el color nos indicaba que no era la mejor calidad. Con<br> Crudog se lo devora y ahora sí come las cantidades que debería.\” - Elena"
+},
+{
+	"type": "text",
+	"id": "text3",
+	"label": "Testimonio 3",
+	"default": "\"Hace unos meses nos dimos cuenta de que nuestro labrador era alérgico al pollo lo que nos trajo a la formula de Piggy Tuna. Este alimento le fascina además de que el brillo de su pelo y la condición de su piel cambio por completo. Bondi antes comía croquetas y definitivamente notamos la mejoría cambiando de croquetas a Crudog.\" -Santiago"
+},
+{
+	"type": "text",
+	"id": "text4",
+	"label": "Testimonio 4",
+	"default": "\"Con la dieta cruda de Crudog por fin pudimos dar con un alimento para controlar el peso de Leo. Me doy cuenta de que digiere muy bien lo que come, además de que se lo devora. Todos los días en cuanto saco el producto del congelador Leo se lo empieza a comer, le encanta.\" -Ana"
+},
+{
+	"type": "text",
+	"id": "text5",
+	"label": "Testimonio 5",
+	"default": "\"Mi pastor belga creo que es un claro ejemplo de la calidad de el alimento de Crudog. Come más de 1 kilo al día (si fuera por él comería más seguramente ya que lame todo el plato) y me rinde al máximo, además de que hace solamente 1 vez al día lo cual para mi es un alivio porque vivo en un departamento pequeño.\" -Carlos"
+}
+],
+  "presets": [
+    {
+      "name": "section7",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

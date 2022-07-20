@@ -1,0 +1,1528 @@
+
+<div class="main_suscribe">
+
+      <br>
+  
+  	<a name="section"></a>
+  	
+      <div class="form-products container-xl container-fluid d-flex justify-content-center align-items-center flex-column w-100">
+
+        <div id="part1" class="part1 w-100 justify-content-center align-items-center flex-column">
+
+          <h1>Crea tu plan</h1>
+
+          <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-1"></i>
+            </figure>
+            <hr>
+          </div>
+          
+          <div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="circle1"></figure>
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-1"></i>
+            </figure>
+            <figure></figure>
+            <hr>
+          </div>
+          
+          <br>
+          <h3 class="mb-4 mt-2">Haremos un plan perfecto para tu mascota</h3>
+          <h4 class="mb-5">Responde las siguientes preguntas:</h4>
+          <div class="send_data_form_suscribe d-flex flex-column">
+            <input type="text" name="name" id="name" placeholder="Nombre">
+            <input type="email" name="email" id="email" placeholder="Correo" onfocusout="validemail()">
+            <input type="text" name="pet" id="pet" placeholder="Nombre de tu mascota">
+            <div class="d-flex w-100 select-btn">
+              <button class="pet-m flex-fill" id="hembra" onclick="form_suscribe_btns1('hembra');">Hembra</button>
+              <button class="pet-h flex-fill" id="macho" onclick="form_suscribe_btns1('macho');">Macho</button>
+            </div>
+            <p id="form_msg" class="msg"></p>
+            <div class="d-flex justify-content-end pe-3">
+              <button type="submit" class="an1Btn sig" onClick="part1();">
+                <span class="textBtn">Siguiente</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="part2" class="part2 w-100 justify-content-center align-items-center flex-column">
+
+          <h1>Acerca de <span id="namepet1"></span></h1>
+
+          <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-2"></i>
+            </figure>
+            <hr>
+          </div>
+          
+          <div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="circle1"></figure>
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-2"></i>
+            </figure>
+            <figure class="circle2"></figure>
+            <figure></figure>
+            <hr>
+          </div>
+          
+          <br>
+          <h3 class="mb-5 pb-5 mt-2">Haremos un plan perfecto para tu mascota</h3>
+
+          <div class="send_data_form_suscribe d-flex flex-column">
+            <h4 class="ms-2">¿Cuál es la raza de <span id="namepet2"></span>?</h4>
+            <div class="d-flex align-items-center select-btn mb-5 flex-column flex-md-row">
+              <input class="w-md-50 w-100 text-center" type="text" name="race" id="race" oninput="raza();" placeholder="Escribe la raza">
+              <button class="w-md-50 w-100 h-50 text-center" id="mestizo" onClick="mestizo();">Mestizo</button>
+            </div>
+
+            <h4 class="ms-2">¿Cuál es la edad de <span id="namepet3"></span>?</h4>
+            <div class="d-flex select-btn mb-3 flex-row">
+              <input class="w-md-50 w-100 text-center" type="number" name="years" min="0" max="99" id="years" placeholder="Años">
+              <input class="w-md-50 w-100 text-center" type="number" name="months" min="0" max="12" id="months" placeholder="Meses">
+            </div>
+            <h5 class="mb-5">Si no te sabes la edad exacta de tu mascota, <br> ingresa una edad aproximada</h5>
+            
+            <h4 class="ms-2 mb-2">¿Cuál es el peso de <span id="namepet9"></span>?</h4>
+            <div class="w-md-50 w-100 peso_div d-flex select-btn mb-3">
+              <div class="d-flex align-items-center w-100">
+                <input class="text-center" min="0" max="999" type="number" name="weight" id="weight">
+                <h4>kg</h4>
+              </div>
+            </div>
+            <h5 class="mb-4">Si no te sabes el peso exacto de tu mascota, <br>ingresa un peso aproximado</h5>
+            
+            <p id="form_msg2" class="msg"></p>
+            <div class="d-flex justify-content-between pe-3 btn-antsig">
+              <button type="submit" class="an1Btn ant" onClick="prev(1,2);">
+                <i class="fa-solid fa-chevron-left"></i>
+               	<span class="textBtn">Anterior</span>
+              </button>
+              <button type="submit" class="an1Btn sig" onClick="part2();">
+                <span class="textBtn">Siguiente</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="part3" class="part3 w-100 justify-content-center align-items-center flex-column">
+
+          <h1>Forma de <span id="namepet4"></span></h1>
+
+          <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-3"></i>
+            </figure>
+            <hr>
+          </div>
+          
+          <div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="circle1"></figure>
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-3"></i>
+            </figure>
+            <figure class="circle2"></figure>
+            <figure></figure>
+            <hr>
+          </div>
+          
+          <br>
+          <h3 class="mb-5 pb-5 mt-2">Haremos un plan perfecto para tu mascota</h3>
+          <div class="w-md-75 w-100 text-center d-flex justify-content-center align-items-center flex-column">
+            <h4 class="ms-2 mb-5">Actividad física de <span id="namepet5"></span> al día</h4>
+            <div class="d-flex w-100 justify-content-center align-items-center select-btn mb-4">
+              <input type="range" class="range-actived" min="0" max="2" id="activity">
+            </div>
+            <div class="d-flex w-100 justify-content-around mb-4">
+              <h4>Bajo</h4>
+              <h4>Medio</h4>
+              <h4>Alto</h4>
+            </div>
+          </div>
+          
+          <div class="send_data_form_suscribe d-flex flex-column text-center">
+            <h4 class="ms-2">Tu percepción de <span id="namepet6"></span></h4>
+            <div class="d-flex select-btn mb-1">
+              <button class="w-50 h-50 m-2 text-center" id="delgado" onClick="percepcion('delgado');">Delgado</button>
+              <button class="w-50 h-50 m-2 text-center" id="bien" onClick="percepcion('bien');">Bien</button>
+            </div>
+            <div class="d-flex select-btn mb-3">
+              <button class="w-50 h-50 m-2 text-center" id="rellenito" onClick="percepcion('rellenito');">Rellenito</button>
+              <button class="w-50 h-50 m-2 text-center" id="sobrepeso" onClick="percepcion('sobrepeso');">Sobrepeso</button>
+            </div>
+            <p id="form_msg3" class="msg"></p>
+            <div class="d-flex justify-content-between btn-antsig">
+              <button type="submit" class="an1Btn ant" onClick="prev(2,3);">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="textBtn">Anterior</span>
+              </button>
+              <button type="submit" class="an1Btn sig" onClick="part3();">
+                <span class="textBtn">Siguiente</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+            
+        </div>
+
+        <div id="part4" class="part4 w-100 justify-content-center align-items-center flex-column">
+
+          <h1>Salud de <span id="namepet7"></span></h1>
+
+          <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-4"></i>
+            </figure>
+            <hr>
+          </div>
+          
+          <div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="circle1"></figure>
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-4"></i>
+            </figure>
+            <figure class="circle2"></figure>
+            <figure></figure>
+            <hr>
+          </div>
+          
+          <br>
+          <h3 class="mb-5 pb-5 mt-2">Haremos un plan perfecto para tu mascota</h3>
+
+          <div class="w-lg-100 w-100 text-center d-flex justify-content-center align-items-center flex-column">
+            
+            <h4 class="ms-2 mb-5">¿<span id="namepet8"></span> cuenta con alguna alergia alimenticia?</h4>
+
+            <div class="w-lg-75 w-100 d-flex justify-content-center select-btn mb-5 row">
+              
+              <div class="col-md-12">
+              	<button class="w-md-25 w-75 m-2 text-center" id="res" onClick="alergy('res');">
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/food1.png?v=1651770022"><br>Res</button>
+              	<button class="w-md-25 w-75 m-2 text-center" id="cerdo" onClick="alergy('cerdo');">
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/food2.png?v=1651770035"><br>Cerdo</button>
+              </div>
+              
+              <div class="col-md-12">
+                <button class="w-md-25 w-75 m-2 text-center" id="pollo" onClick="alergy('pollo');">
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/food3.png?v=1651770045"><br>Pollo</button>
+              	<button class="w-md-25 w-75 m-2 text-center" id="ninguna" onClick="alergy('ninguno');">
+                <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/food4.png?v=1651770054"> Ninguna</button>
+              </div>   
+              
+            </div>
+            <p id="form_msg4" class="msg"></p>
+            <div class="send_data_form_suscribe d-flex flex-column text-center w-lg-50 w-85">
+              <div class="d-flex justify-content-between btn-antsig">
+                <button type="submit" class="an1Btn ant" onClick="prev(3,4);">
+                  <i class="fa-solid fa-chevron-left"></i>
+                  <span class="textBtn">Anterior</span>
+                </button>
+                <button type="submit" class="an1Btn sig" onClick="part4();">
+                  <span class="textBtn">Siguiente</span>
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            
+          </div>
+
+      </div>
+
+      <div id="part5" class="part5 w-100 justify-content-center align-items-center flex-column">
+
+        <h1>Tipo de plan</h1>
+
+        <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+          <figure class="square d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-5"></i>
+          </figure>
+          <hr>
+        </div>
+        
+        <div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="circle1"></figure>
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-5"></i>
+            </figure>
+            <figure class="circle2"></figure>
+            <figure></figure>
+            <hr>
+          </div>
+        
+        <br>
+        <h3 class="mb-5 pb-5 mt-2">Haremos un plan perfecto para tu mascota</h3>
+
+        <div class="w-lg-75 w-100 text-center d-flex justify-content-center align-items-center flex-column">
+          
+          <h4 class="ms-2 mb-5">Elige si deseas hacer el cambio completo <br> o si quieres complementar su alimentación actual</h4>
+
+          <div class="w-xxl-50 w-xl-75 w-lg-85 w-md-90 w-100 d-flex justify-content-center select-plan-1 select-btn mb-1 pb-4">
+            <button class="btn_plan1 w-lg-75 w-100 m-2 d-flex align-items-center justify-content-start flex-column text-center" id="plan1" onClick="planes('plan1');">
+              <p><span>Plan completo</span></p>
+                <div class="m-md-2 m-0"></div>
+                <p>100% Crudog</p>
+                <div class="m-2 margin"></div>
+              <i class="fa-solid fa-check"></i>
+            </button>
+            <button class="btn_plan2 w-lg-75 w-100 m-2 text-center d-flex align-items-center justify-content-start flex-column" id="plan2" onClick="planes('plan2');">
+              <p><span>Plan parcial</span></p>
+              <p>50% Crudog,<br>50% Croquetas</p>
+              <i class="fa-solid fa-check"></i>
+            </button>
+          </div>  
+          
+          <div class="mb-4 pb-4"></div>
+          <p id="form_msg5" class="msg"></p>
+          <div class="send_data_form_suscribe d-flex flex-column text-center w-md-75 w-85">
+            <div class="d-flex justify-content-between btn-antsig">
+              <button type="submit" class="an1Btn ant" onClick="prev(4,5);">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="textBtn">Anterior</span>
+              </button>
+              <button type="submit" class="an1Btn sig" onClick="part5();">
+                <span class="textBtn">Siguiente</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+
+    </div><!--close part5-->
+        
+        <div id="part6" class="part6 w-100 justify-content-center align-items-center flex-column text-center">
+
+        <h1>Plan recomendado por Crudog</h1>
+
+        <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+          <figure class="square d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-6"></i>
+          </figure>
+          <hr>
+        </div>
+          
+          <div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="circle1"></figure>
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-6"></i>
+            </figure>
+            <figure class="circle2"></figure>
+            <figure></figure>
+            <hr>
+          </div>
+          
+        <br>
+        <h3 class="mb-2 pb-3 mt-2">Este es el plan hecho por nosotros para tu mascota</h3>
+
+        <div class="w-lg-75 w-100 text-center d-flex justify-content-center align-items-center flex-column">
+          
+          <div class="resume d-flex justify-content-center align-items-center mb-4">
+            <p>Plan <span id="plan_txt"></span> de <span id="plandays_txt">30 días</span><br><span id="namepet10"></span> debe consumir <span id="grDiarios_txt"></span>g diarios,<br>lo que equivale <span id="kgMes_txt1"></span> kg al mes</p>
+          </div>
+
+          <div class="d-flex justify-content-center w-100">
+            
+            <div id="planes" class="w-100 d-flex justify-content-center align-items-center select-plan-2 select-btn mb-4 flex-column">
+                <div class="d-flex flex-md-row align-items-center flex-column justify-content-center">
+                  <!----------------ACTIVE HOUND--------------------->
+                  <button class="btn_plan1 m-2 align-items-center justify-content-center text-center flex-column" id="activehound" onClick="suggest('activehound');">
+                    <div class="d-flex justify-content-start w-100 mb-1 mb-md-2 mt-1 mt-md-2">
+                    	<div class="suggested" id="suggestedActivehound">Recomendado</div>
+                    </div>
+                    <h4 class="mb-2">Active Hound</h4>
+                    
+                    <div class="pb-3 pb-md-0 d-flex flex-column justify-content-center align-items-center">
+                      <div class="d-flex ms-1">
+                        <img class="w-50" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod1.png?v=1651267479" alt="Crudog active hund" width="50%">
+                        <img class="w-50" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod1.png?v=1651267479" alt="Crudog active hund" width="50%">
+                      </div>
+                      <div class="d-none d-md-flex ms-1">
+                        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod1.png?v=1651267479" alt="Crudog active hund" width="50%">
+                        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod1.png?v=1651267479" alt="Crudog active hund" width="50%">
+                      </div>
+
+                      <div class="m-1 d-none d-sm-block"></div>
+                      <p class="w-100"><span><span id="kgMes_txt2"></span>kg al mes<br><span id="bolsas">(<span id="kgMes_txt3"></span> bolsas)</span></span> <i class="fa-solid fa-check"></i></p>
+                    </div>
+                    
+                  </button>
+                  <!----------------SALMON BITES--------------------->
+                  <button class="btn_plan3 m-2 align-items-center justify-content-center text-center flex-column" id="salmonbites" onClick="suggest('salmonbites');">
+                    <div class="d-flex justify-content-start w-100 mb-1 mb-md-2 mt-1 mt-md-2">
+                    	<div class="suggested" id="suggestedSalmonbites">Recomendado</div>
+                    </div>
+                    
+                    <h4 class="mb-2">Salmon Bites</h4>
+                    <div class="pb-3 pb-md-0 d-flex flex-column justify-content-center align-items-center">
+                      <div class="d-flex ms-1">
+                        <img class="w-50" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod2.png?v=1651267479" alt="Crudog salmon bites" width="50%">
+                        <img class="w-50" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod2.png?v=1651267479" alt="Crudog salmon bites" width="50%">
+                      </div>
+                      <div class="d-none d-md-flex ms-1">
+                        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod2.png?v=1651267479" alt="Crudog salmon bites" width="50%">
+                        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod2.png?v=1651267479" alt="Crudog salmon bites" width="50%">
+                      </div>
+
+                      <div class="m-1"></div>
+                      <p class="w-100"><span id="kgMes_txt6"></span>kg al mes<br><span id="bolsas">(<span id="kgMes_txt7"></span> bolsas)</span></span> <i class="fa-solid fa-check"></i></p>
+                    </div>
+                   </button>
+                  <!----------------PIGGY TUNA--------------------->
+                  <button class="btn_plan2 m-2 align-items-center justify-content-center text-center flex-column" id="piggytuna" onClick="suggest('piggytuna');">
+                    <div class="d-flex justify-content-start w-100 mb-1 mb-md-2 mt-1 mt-md-2">
+                    	<div class="suggested" id="suggestedPiggytuna">Recomendado</div>
+                    </div>
+                    <h4 class="mb-2">Piggy Tuna</h4>
+                    <div class="pb-3 pb-md-0 d-flex flex-column justify-content-center align-items-center">
+                      <div class="d-flex ms-1">
+                        <img class="w-50" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod3.png?v=1651267479" alt="Crudog piggy tuna" width="50%">
+                        <img class="w-50" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod3.png?v=1651267479" alt="Crudog piggy tuna" width="50%">
+                      </div>
+                      <div class="d-none d-md-flex ms-1">
+                        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod3.png?v=1651267479" alt="Crudog piggy tuna" width="50%">
+                        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/prod3.png?v=1651267479" alt="Crudog piggy tuna" width="50%">
+                      </div>
+
+                      <div class="m-1"></div>
+                      <p class="w-100"><span><span id="kgMes_txt4"></span>kg al mes<br><span id="bolsas">(<span id="kgMes_txt5"></span> bolsas)</span></span> <i class="fa-solid fa-check"></i></p>
+                    </div>
+                   </button>
+                  
+                </div>
+
+                <p class="mt-4 mx-3 mx-sm-0">El volumen minimo de entrega es de 4 kg*</p>
+              </div>
+            </div>
+          </div>  
+          
+          <div class="mb-4 pb-4"></div>
+          <p id="form_msg6" class="msg"></p>
+          <div class="send_data_form_suscribe d-flex flex-column text-center w-lg-50 w-md-75 w-85">
+            <div class="d-flex justify-content-between btn-antsig">
+              <button type="submit" class="an1Btn ant" onClick="prev(5,6);">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="textBtn">Anterior</span>
+              </button>
+              <button type="submit" class="an1Btn sig" onClick="part6();">
+                <span class="textBtn">Siguiente</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          
+        </div><!-----Close part6-------->
+      
+
+    <div id="part7" class="part7 w-100 justify-content-center align-items-center flex-column">
+
+        <h1>Precios y Envío</h1>
+
+        <div class="stepper d-none d-md-flex justify-content-center align-items-center flex-column">
+          <figure class="square d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-7"></i>
+          </figure>
+          <hr>
+        </div>
+      
+      	<div class="stepperMobile d-flex d-md-none justify-content-center align-items-center flex-column">
+            <figure class="square d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-7"></i>
+            </figure>
+            <figure class="circle2"></figure>
+            <figure></figure>
+            <hr>
+        </div>
+      
+        <br>
+        <h3 class="mb-5 pb-5 mt-2 px-2">Haremos un plan perfecto para tu mascota</h3>
+
+        <div class="w-md-75 w-lg-100 w-100 text-center d-flex justify-content-center align-items-center flex-column">
+          
+          <h4 class="ms-2 mb-5 px-2">Selecciona el plan de envío que más te convenga</h4>
+
+          <div class="row p-0 w-100 d-flex justify-content-center select-plan-1 select-btn mb-1 pb-4">
+            
+            <div class="col-lg-3 col-md-6 col-12">
+                <button class="btn_plan w-100 mb-2 d-flex align-items-center justify-content-start flex-md-column flex-row text-center" id="semanal" onClick="selectPlan('semanal');msgplan('semanal');">
+                <p class="d-flex justify-content-start w-100">Semanal</p>
+                  <div class="m-2"></div>
+                  <p class="d-flex justify-content-end justify-content-md-center w-100"><span id="priceSemanal"></span></p>
+                  <div class="m-2 margin"></div>
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-12">
+              <button class="btn_plan w-100 mb-2 d-flex align-items-center justify-content-start flex-md-column flex-row text-center" id="diezdias" onClick="selectPlan('diezdias');msgplan('diezdias');">
+                <p class="d-flex justify-content-start w-100">Cada 10 días</p>
+                  <div class="m-2"></div>
+                  <p class="d-flex justify-content-end justify-content-md-center w-100"><span id="priceDiezdias"></span></p>
+                  <div class="m-0 m-sm-2 margin"></div>
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <button class="btn_plan w-100 mb-2 d-flex align-items-center justify-content-start flex-md-column flex-row text-center" id="quincenal" onClick="selectPlan('quincenal');msgplan('quincenal');">
+                <p class="d-flex justify-content-start w-100">Quincenal</p>
+                  <div class="m-2"></div>
+                  <p class="d-flex justify-content-end justify-content-md-center w-100"><span id="priceQuincenal"></span></p>
+                  <div class="m-2 margin"></div>
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <button class="btn_plan w-100 mb-2 d-flex align-items-center justify-content-start flex-md-column flex-row text-center" id="mensual" onClick="selectPlan('mensual');msgplan('mensual');">
+                <p class="d-flex justify-content-start w-100">Mensual</p>
+                  <div class="m-2"></div>
+                  <p class="d-flex justify-content-end justify-content-md-center w-100"><span id="priceMensual"></span></p>
+                  <div class="m-2 margin"></div>
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+            
+          <div class="mt-3 msgPlan">
+            <div id="msgPlan_semanal">
+              <img class="pb-1" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huella_list.png?v=1651267479" width="22px">
+              Recibirás a Crudog 4 veces por mes.
+            </div>
+            <div id="msgPlan_diezdias">
+              <img class="pb-1" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huella_list.png?v=1651267479" width="22px">
+              Recibirás a Crudog 3 veces por mes.
+            </div>
+            <div id="msgPlan_quincenal">
+              <img class="pb-1" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huella_list.png?v=1651267479" width="22px">
+              Recibirás a Crudog 2 veces por mes.
+            </div>
+            <div id="msgPlan_mensual">
+              <img class="pb-1" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/huella_list.png?v=1651267479" width="22px">
+              Recibirás a Crudog 1 vez por mes.
+            </div>
+          </div>
+            
+          </div>
+          <div class="mb-5 pb-5"></div>
+          <p id="form_msg7" class="msg"></p>
+          <div class="send_data_form_suscribe d-flex flex-column text-center w-xxl-60 w-lg-75 w-md-75 w-85">
+            <div class="d-flex justify-content-between btn-antsig">
+              <button type="submit" class="an1Btn ant" onClick="prev(6,7);">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="textBtn">Anterior</span>
+              </button>
+              <button type="submit" class="an1Btn sig" onClick="part7();">
+                <span class="textBtn">Siguiente</span>
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+          
+          
+        </div>
+
+    </div><!--close part7-->
+        
+    <div id="part8" class="part8 w-100 justify-content-center align-items-center flex-column">
+      
+      <h1 class="mb-5">Resumen de compra</h1>
+      
+      <div class="resume mt-4 mb-4 w-lg-50 w-90 w-md-100 d-flex justify-content-center align-items-center flex-column">
+        <div class="d-flex w-100 flex-column align-items-center">
+          	<h4 class="mb-4">Suscripción mensual</h4>
+        </div>
+        <div class="d-flex w-100 flex-column align-items-start">
+        	<h5>Plan <span id="resume_planType"></span> para <span id="resume_petName"></span></h5>
+        </div>
+        
+        
+        <br>
+        
+        <div class="d-flex w-100 justify-content-between align-items-center">
+          <div class="d-flex flex-column align-items-start">
+            <h5><span id="resume_product"></span></h5>
+            <h5>Total de producto</h5>
+            <h5>Plan de entrega</h5>
+          </div>
+          <div class="d-flex flex-column align-items-end">
+            <h5><span id="resume_grDiarios"></span> g diarios</h5>
+            <h5><span id="resume_kgMes"></span> kg al mes </h5>
+            <h5>Cada <span id="resume_planSend"></span></h5>
+          </div>
+        </div>
+        
+        <hr class="mb-4">
+        
+        <div class="mb-3 d-flex w-100 justify-content-between align-items-center">
+          <h5><b>Total</b></h5>
+          <h5 class="payTotal"><b>$<span id="resume_pay"></span>.00 MXN</b> al mes</h5>
+        </div>
+        
+      </div>
+      <br><br><br>
+      <div class="d-flex justify-content-center w-100">
+      	<p id="form_msg8" class="msg"></p>
+      </div>
+      <div class="send_data_form_suscribe d-flex flex-column text-center w-lg-50 w-md-75 w-85">
+            <div class="d-flex flex-column align-items-center flex-sm-row justify-content-center justify-content-sm-between btn-antsig">
+              <button type="submit" class="an1Btn ant" onClick="prev(7,8);">
+                <i class="fa-solid fa-chevron-left"></i>
+                <span class="textBtn">Anterior</span>
+              </button>
+              <button type="submit" class="an1Btn sig comprar" onClick="send();">
+                <span>Comprar</span>
+                <i class="fa-solid fa-angle-right"></i>
+              </button>
+            </div>
+          </div>
+      
+    </div>
+        
+  </div>
+
+</div>
+
+    <!--script form suscribe-->
+    <script>
+
+      var dataSuscribe = {
+        name: "",
+        email: "",
+        pet: "",
+        gender: "",
+        raza: "",
+        activity: "",
+        weight: 0,
+        years: 0,
+        months: 0,
+        perception: "",
+        alergy: "",
+        plantype: "",
+        product: "",
+        plan: 0,
+        doNotDisplay: "",
+        recomended: "activehound",
+        total: 0,
+        totalMonth: 0,
+        priceSemanal:  0,
+        priceDiezdias: 0,
+        priceQuincenal: 0,
+        priceMensual: 0,
+        totalPay: 0,
+        status: false
+      }
+
+      function validemail() {
+ 
+        var email = document.getElementById("email").value;
+        var email_field = document.getElementById("email");
+        var msg = document.getElementById("form_msg");
+        var textmsg = "";
+
+        var match_email = email.match(/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/);
+
+        if(!email || !match_email){
+
+            if(!match_email){
+            textmsg = "* Ingresa un correo válido";
+            msg.innerHTML = textmsg;
+            email_field.style.border = '2px solid red';
+            email_field.style.color = 'red';
+            return false;
+            }
+            if(!email){
+            textmsg = "* Por favor rellena el campo faltante.";
+            msg.innerHTML = textmsg;
+            email_field.style.border = '2px solid red';
+            email_field.style.color = 'red';
+              return false;
+            }
+
+        } else {
+            textmsg = "";
+            msg.innerHTML = textmsg;
+            email_field.style.border = '2px solid green';
+            email_field.style.color = 'green';
+            return true;
+        }
+      }
+
+      function next(numCurr,numSig) {
+
+        if(numCurr != "" && numCurr != 0){
+          var partCurr = "part" + numCurr;
+          var displayCurr = document.getElementById(partCurr);
+          displayCurr.style.animation = "moveRightDisappear 0.3s";
+          setTimeout(() => {
+          displayCurr.style.display = "none";
+          }, 285)
+        }
+
+        if(numSig != "" && numSig != 0){
+          var partSig = "part" + numSig;
+          var displaySig = document.getElementById(partSig);
+          displaySig.style.animation = "moveLeftAppear 0.3s";
+          setTimeout(() => {
+          displaySig.style.display = "flex";
+          }, 285)
+        }
+
+      }
+      function prev(numAnt,numCurr) {
+
+        if(numAnt != "" && numAnt != 0){
+          var partAnt = "part" + numAnt;
+          var displayAnt = document.getElementById(partAnt);
+          displayAnt.style.animation = "moveRightAppear 0.3s";
+          setTimeout(() => {
+          displayAnt.style.display = "flex";
+          }, 285)
+        }
+
+        if(numCurr != "" && numCurr != 0){
+          var partCurr = "part" + numCurr;
+          var displayCurr = document.getElementById(partCurr);
+          displayCurr.style.animation = "moveLeftDisappear 0.3s";
+          setTimeout(() => {
+          displayCurr.style.display = "none";
+          }, 285)
+        }
+        
+      }
+
+      function form_suscribe_btns1(pressed) {
+
+        var macho = document.getElementById("macho");
+        var hembra = document.getElementById("hembra");
+
+
+        if(pressed != "") {
+          if(pressed == "macho"){
+
+            hembra.classList.remove("actived");
+            macho.classList.add("actived");
+
+          }else if(pressed == "hembra"){
+
+            macho.classList.remove("actived");
+            hembra.classList.add("actived");
+
+          }
+        }
+        dataSuscribe.gender = pressed;
+      }
+
+      function part1(){
+
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var pet = document.getElementById("pet").value;
+
+        dataSuscribe.name = name;
+        dataSuscribe.email = email;
+        dataSuscribe.pet = pet;
+
+        if(dataSuscribe.name == "" || dataSuscribe.email == "" || dataSuscribe.pet == "" || dataSuscribe.gender == "") {
+          var msg = document.getElementById("form_msg");
+          var textmsg = "* Por favor rellena los campos faltantes";
+          msg.innerHTML = textmsg;
+        }else{
+          if(validemail() == true){
+            next(1,2);
+            var msg = document.getElementById("form_msg");
+            var textmsg = "";
+            msg.innerHTML = textmsg;
+            for(var i = 1;i <= 10;i++){
+              var namePet = document.getElementById("namepet" + i);
+              namePet.innerHTML = dataSuscribe.pet;
+            }
+          }
+        }
+        scrolls('section');
+      }
+      function mestizo() {
+        var raza = document.getElementById("race");
+        var mestizo = document.getElementById("mestizo");
+        
+        if(dataSuscribe.status == false){
+          dataSuscribe.status = true;
+          dataSuscribe.raza = "mestizo";
+          mestizo.classList.add("actived");
+          raza.value = "";
+        }else if(dataSuscribe.status == true){
+          dataSuscribe.status = false;
+          if(dataSuscribe.raza == "mestizo"){
+            dataSuscribe.raza = "";  
+          }
+          mestizo.classList.remove("actived");
+        }
+      }
+      function raza(){
+        var raza = document.getElementById("race");
+        if(raza != ""){
+          dataSuscribe.status = false;
+          var mestizo = document.getElementById("mestizo");
+          if(dataSuscribe.raza == "mestizo"){
+            dataSuscribe.raza = "";  
+          }
+          mestizo.classList.remove("actived");
+        }
+      }
+      function part2(){
+        var raza = document.getElementById("race").value;
+        if(dataSuscribe.raza != "mestizo"){
+          dataSuscribe.raza = raza;
+        }
+        var years = document.getElementById("years").value;
+        var months = document.getElementById("months").value;
+
+        if(months != 0){
+        	dataSuscribe.months = months;
+        }
+        if(years != 0){
+        	dataSuscribe.years = years;
+        }
+        var weight = document.getElementById("weight").value;
+        dataSuscribe.weight = weight;
+        
+        if(dataSuscribe.raza != "" && dataSuscribe.weight != 0){
+          if(dataSuscribe.years == 0 && dataSuscribe.months == 0){
+            document.getElementById("form_msg2").innerHTML = "* Agrega una edad válida";
+          }else{
+          	next(2,3);
+          	document.getElementById("form_msg2").innerHTML = "";
+          }
+        }else{
+          	document.getElementById("form_msg2").innerHTML = "* Por favor rellena los campos faltantes";
+        }
+        scrolls('section');
+      }
+      
+      function percepcion(pressed){
+
+        var delgado = document.getElementById("delgado");
+        var bien = document.getElementById("bien");
+        var rellenito = document.getElementById("rellenito");
+        var sobrepeso = document.getElementById("sobrepeso");
+        
+        switch(pressed){
+          case "delgado":
+            delgado.classList.add("actived");
+            bien.classList.remove("actived");
+            rellenito.classList.remove("actived");
+            sobrepeso.classList.remove("actived");
+          break;
+          case "bien":
+            delgado.classList.remove("actived");
+            bien.classList.add("actived");
+            rellenito.classList.remove("actived");
+            sobrepeso.classList.remove("actived");
+          break;
+          case "rellenito":
+            delgado.classList.remove("actived");
+            bien.classList.remove("actived");
+            rellenito.classList.add("actived");
+            sobrepeso.classList.remove("actived");
+          break;
+          case "sobrepeso":
+            delgado.classList.remove("actived");
+            bien.classList.remove("actived");
+            rellenito.classList.remove("actived");
+            sobrepeso.classList.add("actived");
+          break;
+          default:
+        }
+
+        dataSuscribe.perception = pressed;
+
+      }
+      function part3(){
+
+        var activity = document.getElementById("activity").value;
+
+        switch(activity){
+          case "0":
+            dataSuscribe.activity = "bajo";
+          break;
+          case "1":
+            dataSuscribe.activity = "medio";
+          break;
+          case "2":
+            dataSuscribe.activity = "alto";
+          break;
+          default:
+        }
+
+        if(dataSuscribe.activity != "" && dataSuscribe.perception != ""){
+          next(3,4);
+          var msg = document.getElementById("form_msg3");
+          var textmsg = "";
+         
+          msg.innerHTML = textmsg;
+        }else{
+          var msg = document.getElementById("form_msg3");
+          var textmsg = "* Por favor rellena los campos faltantes";
+          msg.innerHTML = textmsg;
+        }
+        scrolls('section');
+      }
+      function alergy(pressed){
+        var res = document.getElementById("res");
+        var cerdo = document.getElementById("cerdo");
+        var pollo = document.getElementById("pollo");
+        var ninguno = document.getElementById("ninguna");
+
+        switch(pressed){
+          case "res":
+           res.classList.add("actived");
+           cerdo.classList.remove("actived");
+           pollo.classList.remove("actived");
+           ninguno.classList.remove("actived");
+          break;
+          case "cerdo":
+            res.classList.remove("actived");
+           cerdo.classList.add("actived");
+           pollo.classList.remove("actived");
+           ninguno.classList.remove("actived");
+          break;
+          case "pollo":
+            res.classList.remove("actived");
+           cerdo.classList.remove("actived");
+           pollo.classList.add("actived");
+           ninguno.classList.remove("actived");
+          break;
+          case "ninguno":
+            res.classList.remove("actived");
+           cerdo.classList.remove("actived");
+           pollo.classList.remove("actived");
+           ninguno.classList.add("actived");
+          break;
+          default:
+        }
+        dataSuscribe.alergy = pressed;
+      }
+      function part4(){
+        if(dataSuscribe.alergy != ""){
+          next(4,5);
+          var msg = document.getElementById("form_msg4");
+          var textmsg = "";
+          msg.innerHTML = textmsg;
+        }else{
+          var msg = document.getElementById("form_msg4");
+          var textmsg = "* Por favor rellena los campos faltantes";
+          msg.innerHTML = textmsg;
+        }
+        scrolls('section');
+      }
+
+      function planes(pressed){
+        var plan1 = document.getElementById("plan1");
+        var plan2 = document.getElementById("plan2");
+
+        if(pressed == "plan1"){
+          
+          plan1.classList.add("actived");
+          plan2.classList.remove("actived");
+          dataSuscribe.plantype = "full";
+
+        }else if(pressed == "plan2"){
+          
+          plan1.classList.remove("actived");
+          plan2.classList.add("actived");
+          dataSuscribe.plantype = "half";
+
+        }
+        
+      }
+      
+
+      function part5(){
+        
+        calculatePlan();
+        calculateProduct();
+
+        if(dataSuscribe.plantype != "") {
+          
+          if(dataSuscribe.total <= 0 || dataSuscribe.totalMonth <= 0){
+          	 document.getElementById("form_msg5").innerHTML = "* Parece que algo ha salido mal ¿Te has equivocado con algún dato?";
+          }else{
+            next(5,6);
+          	document.getElementById("form_msg5").innerHTML = "";
+          }
+          
+          
+        }else {
+          document.getElementById("form_msg5").innerHTML = "* Por favor rellena los campos faltantes";
+        }
+        
+        
+        scrolls('section');
+      }
+      
+      function scrolls(name) {
+    
+        window.location.hash = name;
+
+      }
+      
+      function suggest(pressed) {
+        var activehound = document.getElementById("activehound");
+        var piggytuna = document.getElementById("piggytuna");
+        var salmonbites = document.getElementById("salmonbites");
+        
+        if(pressed == "activehound"){
+          activehound.classList.add("actived");
+          salmonbites.classList.remove("actived");
+          piggytuna.classList.remove("actived");
+        }else if(pressed == "piggytuna"){
+          piggytuna.classList.add("actived");
+          salmonbites.classList.remove("actived");
+          activehound.classList.remove("actived");
+        }else if(pressed == "salmonbites"){
+          salmonbites.classList.add("actived");
+          piggytuna.classList.remove("actived");
+          activehound.classList.remove("actived");
+        }
+
+        dataSuscribe.product = pressed;
+
+      }
+      
+      function part6(){
+        
+        calculatePrice();
+        if(dataSuscribe.product != ""){
+          next(6,7);
+          document.getElementById("form_msg6").innerHTML = "";
+        }else{
+          document.getElementById("form_msg6").innerHTML = "* Por favor rellena los campos faltantes";
+        }
+        scrolls('section');
+      }
+      
+      
+      function selectPlan(pressed){
+        var semanal = document.getElementById("semanal");
+        var diezdias = document.getElementById("diezdias");
+        var quincenal = document.getElementById("quincenal");
+        var mensual = document.getElementById("mensual");
+
+        switch(pressed){
+          case "semanal":
+            semanal.classList.add("actived");
+            diezdias.classList.remove("actived");
+            quincenal.classList.remove("actived");
+            mensual.classList.remove("actived");
+            dataSuscribe.plan = 7;
+          break;
+          case "diezdias":
+            semanal.classList.remove("actived");
+            diezdias.classList.add("actived");
+            quincenal.classList.remove("actived");
+            mensual.classList.remove("actived");
+            dataSuscribe.plan = 10;
+          break;
+          case "quincenal":
+            semanal.classList.remove("actived");
+            diezdias.classList.remove("actived");
+            quincenal.classList.add("actived");
+            mensual.classList.remove("actived");
+            dataSuscribe.plan = 15;
+          break;
+          case "mensual":
+            semanal.classList.remove("actived");
+            diezdias.classList.remove("actived");
+            quincenal.classList.remove("actived");
+            mensual.classList.add("actived");
+            dataSuscribe.plan = 30;
+          break;
+          default:
+        }
+   
+      }
+      
+      
+      function calculatePlan(){
+        
+        var total = Number(dataSuscribe.weight);
+        
+        var old = (Number(dataSuscribe.years) * 12) + Number(dataSuscribe.months);
+        
+        
+        if(old <= 12) { /*menos de 12 meses*/
+
+          total = total * 0.10; /* 10% */
+
+        }else if(old >= 83) { /*más de 7 años*/
+
+          total = total * 0.03; /* 3% */
+
+        }else if(old > 12 && old < 83) { /*mas de 12 meses y menos de 7 años*/
+
+          total = total * 0.04; /* 4% */
+
+        }
+        
+        
+        switch(dataSuscribe.activity){
+          case "alto":
+            dataSuscribe.recomended = "piggytuna";
+          break;
+          case "medio":
+            total = total*0.9;
+          break;
+          case "bajo":
+            total = total*0.8
+            dataSuscribe.recomended = "activehound";
+          break;
+            default:
+        }
+        
+        switch(dataSuscribe.perception){
+          case "delgado":
+            total = total*1.2;
+          break;
+          case "bien":
+          break;
+          case "rellenito":
+           total = total*0.9;
+          break;
+          case "sobrepeso":
+            total = total*0.8;
+          break;
+          default:
+        }
+        
+        switch(dataSuscribe.alergy){          
+          case "res":
+           	dataSuscribe.salmonbright = false;
+          break;
+          case "cerdo":
+            dataSuscribe.piggytuna = false;
+          break;
+          case "pollo":
+           	dataSuscribe.activehound = false;
+          break;
+          case "ninguno":
+          break;
+           default:
+        }
+        
+        if(dataSuscribe.plantype == "half"){
+          total = total * 0.25;
+        }else if (dataSuscribe.plantype == "full"){
+          total = total * 0.5;
+        }
+        
+		dataSuscribe.total = Math.round(total*1000);
+           
+        dataSuscribe.totalMonth = Math.ceil(total*30);
+        
+        
+        if(dataSuscribe.plantype == "full"){
+          
+          document.getElementById("plan_txt").innerHTML = "Completo";
+          
+        }else if(dataSuscribe.plantype == "half"){
+          
+          document.getElementById("plan_txt").innerHTML = "Parcial";
+          
+        }
+        
+          document.getElementById("grDiarios_txt").innerHTML = dataSuscribe.total;
+        
+        for(i=1;i<=7;i++){
+          document.getElementById("kgMes_txt" + i).innerHTML = dataSuscribe.totalMonth;
+        }
+        
+      }
+      
+      
+      function calculateProduct(){
+       
+        if(dataSuscribe.activity == "alto"){
+          
+          dataSuscribe.recomended = "piggytuna";
+          
+        }else if(dataSuscribe.activity == "bajo"){
+          
+          dataSuscribe.recomended == "activehound";
+          
+        }
+        
+        if(dataSuscribe.perception == "rellenito" || dataSuscribe.perception == "sobrepeso"){
+          
+          dataSuscribe.recomended == "activehound";
+          
+        }
+        
+        var salmonbites = document.getElementById("salmonbites");
+        var piggytuna = document.getElementById("piggytuna");
+        var activehound = document.getElementById("activehound");
+        
+        
+        switch(dataSuscribe.alergy){
+          case "res":
+            
+         	dataSuscribe.doNotDisplay = "salmonbites";
+            /*salmonbites.style.display = "none";*/
+            piggytuna.style.display = "flex";
+            activehound.style.display = "flex";
+            
+          break;
+          case "cerdo":
+            
+            dataSuscribe.doNotDisplay = "piggytuna";
+            /*salmonbites.style.display = "flex";*/
+            piggytuna.style.display = "none";
+            activehound.style.display = "flex";
+            
+          break;
+          case "pollo":
+            
+            dataSuscribe.doNotDisplay = "activehound";
+            /*salmonbites.style.display = "flex";*/
+            piggytuna.style.display = "flex";
+            activehound.style.display = "none";
+            
+          break;
+          case "ninguno":
+            
+            dataSuscribe.doNotDisplay = "";
+            /*salmonbites.style.display = "flex";*/
+            piggytuna.style.display = "flex";
+            activehound.style.display = "flex";
+            
+          break;
+        }
+        
+
+        
+        if(dataSuscribe.recomended == "piggytuna" && dataSuscribe.doNotDisplay == "piggytuna"){
+          
+          dataSuscribe.recomended = "activehound";
+          
+        }else if(dataSuscribe.recomended == "activehound" && dataSuscribe.doNotDisplay == "activehound"){
+          
+          dataSuscribe.recomended = "piggytuna";
+          
+        }else if(dataSuscribe.recomended == "salmonbites" && dataSuscribe.doNotDisplay == "salmonbites"){
+          
+          dataSuscribe.recomended = "activehound";
+          
+        }
+        
+        if(dataSuscribe.recomended == "piggytuna"){
+          
+          document.getElementById("suggestedPiggytuna").style.opacity = "1";
+          document.getElementById("suggestedActivehound").style.opacity = "0";
+          document.getElementById("suggestedSalmonbites").style.opacity = "0";
+          
+        }else if(dataSuscribe.recomended == "activehound"){
+          
+          document.getElementById("suggestedPiggytuna").style.opacity = "0";
+          document.getElementById("suggestedActivehound").style.opacity = "1";
+          document.getElementById("suggestedSalmonbites").style.opacity = "0";
+          
+        }else if(dataSuscribe.recomended == "salmonbites"){
+          
+          document.getElementById("suggestedPiggytuna").style.opacity = "0";
+          document.getElementById("suggestedActivehound").style.opacity = "0";
+          document.getElementById("suggestedSalmonbites").style.opacity = "1";
+          
+        }
+        
+        
+      }
+      
+      function calculatePrice(){ //Aquí se cambia el calculo del precio
+
+        var total = dataSuscribe.totalMonth;
+       
+		
+        if(dataSuscribe.product == "activehound"){
+          	dataSuscribe.priceSemanal =  separator(Math.ceil((total)*80));
+        	dataSuscribe.priceDiezdias = separator(Math.ceil((total)*80));
+        	dataSuscribe.priceQuincenal = separator(Math.ceil((total)*75));
+        	dataSuscribe.priceMensual = separator(Math.ceil((total)*70));
+        }else if(dataSuscribe.product == "piggytuna"){
+          	dataSuscribe.priceSemanal =  separator(Math.ceil((total)*90));
+        	dataSuscribe.priceDiezdias = separator(Math.ceil((total)*90));
+        	dataSuscribe.priceQuincenal = separator(Math.ceil((total)*85));
+        	dataSuscribe.priceMensual = separator(Math.ceil((total)*80));
+        }else if(dataSuscribe.product == "salmonbites"){
+          	dataSuscribe.priceSemanal =  separator(Math.ceil((total)*80));
+        	dataSuscribe.priceDiezdias = separator(Math.ceil((total)*80));
+        	dataSuscribe.priceQuincenal = separator(Math.ceil((total)*75));
+        	dataSuscribe.priceMensual = separator(Math.ceil((total)*70));
+        }
+
+        document.getElementById("priceSemanal").innerHTML = "$"+dataSuscribe.priceSemanal+".00 MXN";
+        document.getElementById("priceDiezdias").innerHTML = "$"+dataSuscribe.priceDiezdias+".00 MXN";
+        document.getElementById("priceQuincenal").innerHTML = "$"+dataSuscribe.priceQuincenal+".00 MXN";
+        document.getElementById("priceMensual").innerHTML = "$"+dataSuscribe.priceMensual+".00 MXN"; 
+      }
+
+      function separator(numb) {
+          var str = numb.toString().split(".");
+          str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          return str.join(".");
+      }
+      
+      function calculatePay(){
+        
+        var pay = 0;
+        
+       	switch(dataSuscribe.plan){
+          case 7:  
+            pay =  dataSuscribe.priceSemanal;
+          break;
+          case 10:
+            pay =  dataSuscribe.priceDiezdias;
+          break;
+          case 15:
+            pay =  dataSuscribe.priceQuincenal;
+          break;
+          case 30:
+            pay =  dataSuscribe.priceMensual;
+          break;
+        }
+        
+        dataSuscribe.totalPay = pay;
+      }
+
+      function part7(){
+        
+        calculatePay();
+        
+        var product = "";
+        var plan = "";
+        var plantype = "";
+        
+        switch(dataSuscribe.product){
+          case "activehound":
+            product = "Active Hound";
+          break;
+          case "piggytuna":
+            product = "Piggy Tuna";
+          break;
+          case "salmonbites":
+            product = "Salmon Bites";
+          break;
+        }
+        
+        switch(dataSuscribe.plan){
+          case 7:
+            plan = "semana";
+          break;
+          case 10:
+            plan = "10 días";
+          break;
+          case 15:
+            plan = "15 días";
+          break;
+          case 30:
+            plan = "mes";
+          break;
+        }
+        if(dataSuscribe.plantype == "full"){
+          plantype = "Completo";
+        }else if(dataSuscribe.plantype == "half"){
+          plantype = "Parcial";
+        }
+        
+        if(dataSuscribe.plan != 0){
+          
+          document.getElementById("form_msg6").innerHTML = "";
+          
+          document.getElementById("resume_petName").innerHTML = dataSuscribe.pet;
+          
+          document.getElementById("resume_planType").innerHTML = plantype;
+          document.getElementById("resume_product").innerHTML = product;
+          document.getElementById("resume_grDiarios").innerHTML = dataSuscribe.total;
+          document.getElementById("resume_kgMes").innerHTML = dataSuscribe.totalMonth;
+          document.getElementById("resume_planSend").innerHTML = plan;
+          document.getElementById("resume_pay").innerHTML = separator(dataSuscribe.totalPay);
+          
+          next(7,8);
+          
+        }else{
+          document.getElementById("form_msg7").innerHTML = "* Por favor rellena los campos faltantes";
+        }
+        
+      }
+      
+      function send(){
+        
+        var variant = "";
+        var quantity = String(dataSuscribe.totalMonth);
+        var product = "";
+        var actualUrl = String(window.location);
+        var url= actualUrl.split("/");
+  
+        
+        if(quantity < 4){
+          
+          document.getElementById("form_msg8").innerHTML = "* El volumen minimo de entrega es de 4 kg";
+          
+        }else{
+        
+        switch(dataSuscribe.product){
+          case "activehound":
+            
+            product = "active-hound-1";
+             switch(dataSuscribe.plan){
+              case 7:
+                variant = "42888096022781";
+              break;
+              case 10:
+                variant = "42888096055549";
+              break;
+              case 15:
+                variant = "42888096088317";
+              break;
+              case 30:
+                variant = "42888096121085";
+              break;
+            }
+            
+          break;
+          case "piggytuna":
+            
+            product = "piggy-tuna-suscripcion-mensual";
+             switch(dataSuscribe.plan){
+              case 7:
+                variant = "42892502139133";
+              break;
+              case 10:
+                variant = "42892502171901";
+              break;
+              case 15:
+                variant = "42892502204669";
+              break;
+              case 30:
+                variant = "42892502237437";
+              break;
+            }
+            
+          break;
+          case "salmonbites":
+            
+            product = "";
+            variant = "";
+            
+          break;
+        }
+        
+        
+          var url = "https://" + url[2] + "/products/" + product + "?variant=" + variant + "?quantity=" + quantity + "?url=redirect";
+        
+       	window.location.href = url;
+     
+          
+        }
+        
+      }
+      
+      function msgplan(plan){
+        
+        var msgPlan_semanal = document.getElementById('msgPlan_semanal');
+        var msgPlan_diezdias = document.getElementById('msgPlan_diezdias');
+        var msgPlan_quincenal = document.getElementById('msgPlan_quincenal');
+      	var msgPlan_mensual = document.getElementById('msgPlan_mensual');
+        
+        
+        switch(plan){
+          case "semanal":
+          	msgPlan_semanal.style.animation = "fadeIn 0.3s";
+            msgPlan_diezdias.style.animation = "fadeOut 0.3s";
+            msgPlan_quincenal.style.animation = "fadeOut 0.3s";
+            msgPlan_mensual.style.animation = "fadeOut 0.3s";
+            setTimeout(() => {
+              msgPlan_semanal.style.display = "block";
+              msgPlan_diezdias.style.display = "none";
+              msgPlan_quincenal.style.display = "none";
+              msgPlan_mensual.style.display = "none";
+          	}, 300)
+          break;
+            case "diezdias":
+          	msgPlan_semanal.style.animation = "fadeOut 0.3s";
+            msgPlan_diezdias.style.animation = "fadeIn 0.3s";
+            msgPlan_quincenal.style.animation = "fadeOut 0.3s";
+            msgPlan_mensual.style.animation = "fadeOut 0.3s";
+            setTimeout(() => {
+              msgPlan_semanal.style.display = "none";
+              msgPlan_diezdias.style.display = "block";
+              msgPlan_quincenal.style.display = "none";
+              msgPlan_mensual.style.display = "none";
+          	}, 300)
+          break;
+            case "quincenal":
+          	msgPlan_semanal.style.animation = "fadeOut 0.3s";
+            msgPlan_diezdias.style.animation = "fadeOut 0.3s";
+            msgPlan_quincenal.style.animation = "fadeIn 0.3s";
+            msgPlan_mensual.style.animation = "fadeOut 0.3s";
+            setTimeout(() => {
+              msgPlan_semanal.style.display = "none";
+              msgPlan_diezdias.style.display = "none";
+              msgPlan_quincenal.style.display = "block";
+              msgPlan_mensual.style.display = "none";
+          	}, 300)
+          break;
+            case "mensual":
+          	msgPlan_semanal.style.animation = "fadeOut 0.3s";
+            msgPlan_diezdias.style.animation = "fadeOut 0.3s";
+            msgPlan_quincenal.style.animation = "fadeOut 0.3s";
+            msgPlan_mensual.style.animation = "fadeIn 0.3s";
+            setTimeout(() => {
+              msgPlan_semanal.style.display = "none";
+              msgPlan_diezdias.style.display = "none";
+              msgPlan_quincenal.style.display = "none";
+              msgPlan_mensual.style.display = "block";
+          	}, 300)
+          break;
+            
+        }
+        
+      }
+      
+      function next(numCurr,numSig) {
+
+        if(numCurr != "" && numCurr != 0){
+          var partCurr = "part" + numCurr;
+          var displayCurr = document.getElementById(partCurr);
+          displayCurr.style.animation = "moveRightDisappear 0.3s";
+          setTimeout(() => {
+          displayCurr.style.display = "none";
+          }, 285)
+        }
+
+        if(numSig != "" && numSig != 0){
+          var partSig = "part" + numSig;
+          var displaySig = document.getElementById(partSig);
+          displaySig.style.animation = "moveLeftAppear 0.3s";
+          setTimeout(() => {
+          displaySig.style.display = "flex";
+          }, 285)
+        }
+
+      }
+      
+
+    </script>
+
+{% schema %}
+{
+  "name": "quoter",
+  "settings": [],
+  "presets": [
+    {
+      "name": "quoter",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

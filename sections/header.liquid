@@ -1,0 +1,304 @@
+ <header id="navbar">
+
+      <nav class="navbar navbar-expand-sm">
+
+          <div class="w-100 mt-2 mb-2 d-flex justify-content-around align-items-center text-center">
+
+              <div>
+                  <a class="navbar-brand" href="/">                      
+                    {%- if section.settings.logo != blank -%}                
+                    <img src="{{ section.settings.logo | image_url}}" alt="Logo crudog" class="logo" width="250px">
+                    {% else %}
+                    <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo_crudog2.png?v=1652712160" alt="Logo crudog" class="logo" width="250px">
+                    {%- endif -%}
+                  </a>
+              </div>
+
+
+            <div  class="d-none d-lg-block">
+              <div>
+                <ul class="navbar-nav menu-header">
+
+                  <li class="nav-item">
+                    <a class="nav-link" style="cursor:pointer;" href="https://crudog-pruebas.myshopify.com/#conocenos">Conócenos</a>
+                  </li>
+
+                  {% for childlink in linklists[child_list_handle].links %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                  </li>
+                  {% endfor %}
+
+                  {% for link in linklists.main-menu.links %}
+                      {% assign child_list_handle = link.title | handleize %}
+                      {% if linklists[child_list_handle].links != blank %}
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                  </li>
+
+                  {% else %}
+
+                  <li class="nav-item">
+                    <a {% if link.active %} class="nav-link actived"{% else %}class="nav-link"{% endif %} href="{{ link.url }}">{{ link.title }}</a>
+                  </li>
+
+                  {% endif %}
+                  {% endfor %}
+
+                </ul>
+              </div>
+            </div>
+
+            <div class="d-block d-lg-none"></div>
+
+
+            <div class="d-flex">
+
+              <a href="/pages/suscribete">
+                <button class="btn-comprar-header">
+                  Comprar
+                </button>
+              </a>
+              <div class="social-icons social-header d-flex align-items-center">
+                  <a href="https://www.facebook.com/Crudog-100208899143317" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://www.instagram.com/crudog_" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+              </div>
+
+              <div class="menuBurger ms-2 mt-1 d-flex d-lg-none justify-content-center align-items-center">
+                <button class="labelMenu">
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+              </div>
+
+                 <div class="dropdown login d-none d-lg-flex">
+                  {% if shop.customer_accounts_enabled %}
+                    {% if customer %}
+                    <li class="nav-item mx-3 dropdown-toggle" data-bs-toggle="dropdown" style="cursor:pointer;">
+                      <i class="fa-solid fa-user"></i>
+                    </li>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="/account">Mi cuenta</a></li>
+                      <li><a class="dropdown-item" href="/pages/spurit-subscriptions">Mis suscripciones</a></li>
+                      <li><a class="dropdown-item" href="/account/logout">Cerrar sesión</a></li>
+                    </ul>
+
+                    {% else %}
+                   <li class="nav-item mx-3">
+                     <a href="/account/login"><i class="fa-solid fa-user"></i></a>
+                    </li>
+
+                    {% endif %}
+                  {% endif %}
+                   <li class="nav-item cart_icon">
+                     <a href="/cart"><i class="fa-solid fa-cart-shopping"></i>
+                       {% if cart.item_count > 0 %}<span class="badge bg-danger text-center">{{ cart.item_count }}</span>{% endif %}
+                     </a>
+                    </li>
+                 </div> 
+
+            </div>
+
+          </div>
+
+        </nav>
+
+        <div class="menu">
+          <div class="w-100 d-flex justify-content-center align-items-center mt-3 mb-3 text-center">
+            <ul class="navbar-nav menu-header text-center d-flex justify-content-center align-items-center">
+
+              <li class="nav-item">
+                <a class="nav-link closemenu" style="cursor:pointer;" href="https://crudog-pruebas.myshopify.com/#conocenos">Conócenos</a>
+              </li>
+
+              {% for childlink in linklists[child_list_handle].links %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              </li>
+              {% endfor %}
+
+              {% for link in linklists.main-menu.links %}
+                  {% assign child_list_handle = link.title | handleize %}
+                  {% if linklists[child_list_handle].links != blank %}
+
+              <li class="nav-item">
+                <a class="nav-link actived" href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+              </li>
+
+              {% else %}
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+
+              {% endif %}
+              {% endfor %}
+
+
+              <li>
+                <div class="social-icons mt-1 mb-1 d-flex justify-content-start">
+                  <a href="https://www.facebook.com/Crudog-100208899143317" target="_blank">
+                    <i class="fa-brands fa-facebook-f me-1"></i>
+                  </a>
+                  <a href="https://www.instagram.com/crudog_" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a> 
+                  <span></span>
+                </div>
+              </li>
+
+              <div class="dropdown login m-0 p-0">
+                  {% if shop.customer_accounts_enabled %}
+                    {% if customer %}
+                    <li class="nav-item dropdown-toggle" data-bs-toggle="dropdown" style="cursor:pointer;">
+                      <i class="fa-solid fa-user"></i>
+                    </li>
+
+                    <ul class="dropdown-menu dropdown-menu-center">
+                      <li><a class="dropdown-item" href="/account">Mi cuenta</a></li>
+                      <li><a class="dropdown-item" href="/pages/spurit-subscriptions">Mis suscripciones</a></li>
+                      <li><a class="dropdown-item" href="/account/logout">Cerrar sesión</a></li>
+                    </ul>
+
+                    {% else %}
+                   <li class="nav-item">
+                     <a href="/account/login"><i class="fa-solid fa-user"></i></a>
+                    </li>
+
+                    {% endif %}
+                  {% endif %}
+                   <li class="nav-item cart_icon_mobile">
+                     <a href="/cart"><i class="fa-solid fa-cart-shopping"></i>
+                       {% if cart.item_count > 0 %}<span class="badge bg-danger text-center">{{ cart.item_count }}</span>{% endif %}
+                     </a>
+                   </li>
+              </div> 
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="opacMenu"></div>
+
+  </header>
+
+
+<script>
+
+$(document).ready
+      (
+        function()
+        {
+          $('.labelMenu').click
+          (
+            function()
+            {
+               $('.menu').css('left', 0);
+               $('.opacMenu').fadeIn();
+            }
+          )
+          
+          $('.opacMenu').click
+          (
+            function()
+            {
+               $('.menu').css('left', '-205px');
+               $('.opacMenu').fadeOut();
+            }
+          )
+          $('.closemenu').click
+          (
+            function()
+            {
+               $('.menu').css('left', '-205px');
+               $('.opacMenu').fadeOut();
+            }
+          )
+        }
+      )
+
+var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-105px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+
+</script>
+
+{% style %}
+
+.menu 
+{
+  position: fixed;
+  top: 0;
+  left: -205px;
+  bottom: 0;
+  min-width: 200px;
+  max-width: 200px;
+  min-height: 100vh;
+  max-height: 100vh;
+  background-color: #FAFAFA;
+  box-shadow: 0 0 16px rgba(0, 0, 0, .20);
+  transition: all 0.2s;
+  z-index: 50;
+  text-align: center;
+}
+.menu ul a {
+  display: flex; padding: 10px;  color: #444; transition: all 0.2s;
+}
+.opacMenu
+{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 40;
+}
+
+{% endstyle %}
+
+
+  
+{% schema %}
+{
+  "name": "header",
+  "settings": [
+{
+  "type": "image_picker",
+    "id": "logo",
+    "label": "Logo image"
+},
+{
+  "type": "text",
+    "id": "social_facebook",
+    "label": "Url facebook",
+	"default": "https://www.facebook.com/Crudog-100208899143317"
+},
+{
+  "type": "text",
+    "id": "social_instagram",
+    "label": "Url instagram",
+	"default": "https://www.instagram.com/crudog_/"
+}
+],
+  "presets": [
+    {
+      "name": "header",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+

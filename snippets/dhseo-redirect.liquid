@@ -1,0 +1,123 @@
+
+{%- if template == '404' -%}
+<script>
+    function ajax(options) {
+        options = options || {};
+        options.type = options.type.toUpperCase() || 'POST';
+        options.async = options.async || true;
+        options.url = options.url || window.location.href;
+        options.contentType = options.contentType || 'application/json;charset=utf-8';
+        options.data = options.data || '';
+        options.dataType = options.dataType || 'JSON';
+        options.timeout = options.timeout || 10000;
+        options.complete = options.complete || function(){};
+        options.success = options.success || function(){};
+        options.error = options.error || function(){};
+
+        var xhr = new XMLHttpRequest();
+        xhr.open(options.type, options.url);
+        xhr.setRequestHeader('Content-type', options.contentType);
+        xhr.send(options.data);
+
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+              options.complete();
+              if (xhr.status === 200) {
+                  options.success(xhr.responseText);
+              } else {
+                  options.error(xhr, xhr.status, xhr.statusText);
+              }
+          }
+        }
+    }
+    function dhseoSave404() {
+        var data404 = JSON.stringify({'shopId': '{{shop.id}}', 'url': window.location.pathname});
+        console.log(data404)
+        ajax({
+            type: 'POST',
+            url: 'https://www.dhgate-seo.com/prod-api/page404Record/save',
+            contentType: 'application/json;charset=utf-8',
+            data: data404,
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (message) {
+                console.log("404 save success")
+            },
+            error: function (message) {
+                console.log("404 save error")
+            }
+        })
+    }
+
+    var ruleType = '3';
+    var productRedirectStatus = '1';
+    var productRedirectUrl = 'https://tienda.crudog.mx/';
+    var collectionRedirectStatus = '0';
+    var collectionRedirectUrl = '';
+    var articleRedirectStatus = '0';
+    var articleRedirectUrl = '';
+    var otherRedirectStatus = '0';
+    var otherRedirectUrl = '';
+
+    var curPath = window.location.pathname;
+
+    function customRedirect() {
+        if (ruleType === '1') {
+            console.log("Goto homepage")
+            window.location.href = '{{ shop.url }}';
+        }
+        if (ruleType === '2') {
+            console.log("Stay on the 404 page")
+        }
+        if (ruleType === '3') {
+            console.log("Route by setting")
+            var redirectUrls = [productRedirectUrl, collectionRedirectUrl, articleRedirectUrl, otherRedirectUrl];
+            // avoid endless loop
+            for (let i = 0; i < redirectUrls.length; ++i) {
+                var redirectUrl = redirectUrls[i];
+                if (curPath === (redirectUrl)) {
+                    console.log("Stop to avoid endless loop")
+                    return;
+                }
+            }
+            if (curPath.startsWith('/products/')) {
+                if(productRedirectStatus === '1' && productRedirectUrl !== ''){
+                    // match product
+                    window.location.href = '{{ shop.url }}' + productRedirectUrl;
+                }else if(productRedirectStatus === '0'){
+                    window.location.href = '{{ shop.url }}';
+                }
+            }
+            if (curPath.startsWith('/collections/')) {
+                // match collection
+                if(collectionRedirectStatus === '1' && collectionRedirectUrl !== ''){
+                    // match product
+                    window.location.href = '{{ shop.url }}' + collectionRedirectUrl;
+                }else if(collectionRedirectStatus === '0'){
+                    window.location.href = '{{ shop.url }}';
+                }
+            }
+            if (curPath.startsWith('/blogs/')) {
+                // match article
+                if(articleRedirectStatus === '1' && articleRedirectUrl !== ''){
+                    // match product
+                    window.location.href = '{{ shop.url }}' + articleRedirectUrl;
+                }else if(articleRedirectStatus === '0'){
+                    window.location.href = '{{ shop.url }}';
+                }
+            }
+            if (otherRedirectStatus === '1') {
+                // match other
+                window.location.href = '{{ shop.url }}' + otherRedirectUrl;
+            }
+            console.log("Not match 404 route setting,Stay on the 404 page")
+        }
+    }
+
+    dhseoSave404();
+    setTimeout(customRedirect, 2000);
+</script>
+{%- endif -%}

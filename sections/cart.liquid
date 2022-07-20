@@ -1,0 +1,162 @@
+
+<div class="mt-0 mt-md-5 cartCont d-none d-md-flex flex-column justify-content-center align-items-center text-center w-100">
+
+  <h1 class="mb-5">Carrito de compras</h1>
+
+  <div class="cart p-4">
+    {% if cart.item_count > 0 %}
+	<form action="/cart" method="post" novalidate>
+      <table>
+        <thead style="border-bottom:1px solid lightgrey;font-size:13pt;">
+          <th colspan="2" class="ps-3 pe-3">Producto</th>
+          <th class="ps-3 pe-3">Precio</th>
+          <th class="ps-3 pe-3">Cantidad</th>
+          <th class="ps-3 pe-3">subtotal</th>
+          <th class="ps-3 pe-3"></th>
+        </thead>
+        <tbody style="font-size:14pt;">
+          {% for item in cart.items %}
+            <tr class="p-2">
+              <td class="p-3">
+                <a href="{{ item.url | within: collections.all }}">
+                  <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
+                </a>
+              </td>
+              <td class="ps-3 pe-3">
+                <a style="text-decoration:none;" href="{{ item.url }}">{{ item.product.title }}</a>
+                {%if item.variant.title != "Default Title"%}<br>[Envío: {{ item.variant.title }}]{% endif %}
+              </td>
+              <td>{{ item.price | money }} MXN</td>
+              <td class="ps-3 pe-3">
+                <input class="form-control ms-2" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="2" max="999">
+              </td>
+              <td class="ps-3 pe-3">
+                {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                {{ item.line_price | money }} MXN
+                {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+              </td>
+              <td class="ps-3 pe-3">
+                <a class="btn text-danger" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                	<i class="fa-solid fa-xmark"></i>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div>
+         <button class="btn btn-outline-secondary" type="submit" name="update">Actualizar</button>
+        <hr>
+        <p class="mb-2">Artículos: {{ cart.item_count }}</p>
+        <h4>Total : <span class="total">{{ cart.total_price | money }} MXN</span></h4>
+        <div class="mt-4 mb-4">
+          {% if cart.item_count < 2 %}
+          <button class="btn-comprar" disabled>Finalizar compra</button> 
+          <div class="alert alert-danger mt-3">
+            * El volumen mínimo de entrega es de 2kg, agrega más y actualiza tu carrito
+          </div>
+          {% else %}
+          <button class="btn-comprar" type="submit" name="checkout">Finalizar compra</button>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+    <span class="p-4">
+    {% else %}
+      Aún no agregas productos
+    {% endif %}
+    </span>
+  </div>
+
+</div>
+
+<!-----------CARRITO MÓVIL-------------->
+
+
+<div class="cartMobile p-3 mt-5 cartCont d-flex d-md-none flex-column justify-content-center align-items-center text-center w-100">
+
+  <h1 class="mb-5">Carrito de compras</h1>
+
+  <div class="cart">
+    {% if cart.item_count > 0 %}
+	<form action="/cart" method="post" novalidate>
+        <hr>
+        <div style="font-size:14pt;">
+          {% for item in cart.items %}
+            <div class="cartProduct d-flex justify-content-center align-items-center flex-column w-100">
+              <div>
+                <a href="{{ item.url | within: collections.all }}">
+                  <img src="{{ item | img_url: 'small' }}" alt="{{ item.title | escape }}">
+                </a>
+              </div>
+              <div class="cartProductVariant text-muted">
+                <a style="text-decoration:none;" href="{{ item.url }}">{{ item.product.title }}</a>
+                <span>{%if item.variant.title != "Default Title"%}<br>[Envío: {{ item.variant.title }}]{% endif %}</span>
+              </div>
+              <div>
+                Precio unitario: <br class="d-block d-sm-none" />{{ item.price | money }} MXN
+              </div>
+              <div class="d-flex">
+                Cantidad: <input class="form-control ms-2" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="2" max="999">
+              </div>
+              <div>
+                {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+                Subtotal: {{ item.line_price | money }} MXN
+                {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+              </div>
+              <div>
+                <a class="btnClose btn text-danger" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                	<i class="fa-solid fa-xmark"></i>
+                </a>
+              </div>
+          	</div>
+          <hr>
+        {% endfor %}
+      </div>
+
+      <div>
+         <button class="btn btn-outline-secondary" type="submit" name="update">Actualizar</button>
+        <hr>
+        <p class="mb-2">Artículos: {{ cart.item_count }}</p>
+        <h4>Total : <span class="total">{{ cart.total_price | money }}</span></h4>
+        <div class="mt-4 mb-4">
+          {% if cart.item_count < 2 %}
+          <button class="btn-comprar" disabled>Finalizar compra</button> 
+          <div class="alert alert-danger mt-3">
+            * El volumen mínimo de entrega es de 2kg, agrega más y actualiza tu carrito
+          </div>
+          {% else %}
+          <button class="btn-comprar" type="submit" name="checkout">Finalizar compra</button>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+    <span class="p-4">
+    {% else %}
+      Aún no agregas productos
+    {% endif %}
+    </span>
+  </div>
+
+</div>
+
+<script>
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+ 	return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
+
+{% schema %}
+{
+  "name": "cart",
+  "settings": [],
+  "presets": [
+    {
+      "name": "cart"
+    }
+  ]
+}
+{% endschema %}
+
+

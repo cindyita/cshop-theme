@@ -1,0 +1,122 @@
+<div id="loading_product">
+   <div class="spinner-border text-primary"></div>
+</div>
+
+  {% style %}
+      #loading_product {
+        display: flex;
+        position: fixed;
+  		top:0;
+        z-index: 5000;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        text-align:center;
+      }
+
+{% endstyle %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+
+<br><br><br><br>
+
+<div class="container mt-5">
+<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-12 col-xl-6 d-flex d-xl-block align-items-center justify-content-center">
+      <div class="products product1 text-center d-flex flex-column justify-content-center align-items-center wow bounceInLeft" data-wow-offset="300">
+        <h1>{{ product.title }}</h1>
+        <br>
+        <h5 style="display:none;">Próximamente</h5>
+        
+        <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
+        
+        <h4 style="font-size:13pt;"><br>{% for tag in product.tags %}{{ tag }}, {% endfor %}Comprar ahora</h4>
+      </div>
+
+    </div>
+    <div class="col-12 col-xl-6 d-flex d-xl-block align-items-center justify-content-center">
+      <div class="products_desc product1_desc wow bounceInRight" data-wow-offset="300">
+        <h1>{{ current_variant.price | money }}</h1>                        
+        <div class="ms-4">
+          {% if product.selected_variant != null %}
+            <h4>Envío: {{ product.selected_variant.title }}</h4>
+            {% endif %}
+          <div class="d-flex"><h5>Cantidad: </h5><input type="number" id="Quantity" value="2" name="quantity" min="2" class="form-control w-25 ms-2"></span></div>
+          
+          
+          <h5>{{ product.description }}</h5>
+
+          
+          <div class="variants" hidden>
+            <select name="id" id="productSelect">
+              {% for variant in product.variants %}
+
+                {% if variant.available %}
+                  <option value="{{ variant.id }}" {% if variant.id == product.selected_variant.id %}selected="selected"{% endif %}>
+                    {{ variant.id }} - 
+                    {{ variant.title }} - 
+                    {{ variant.price | money | strip_html }}
+                  </option>
+
+                {% else %}
+                  <option disabled="disabled">
+                    {{ variant.title }} - Agotado
+                  </option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+          
+          
+        </div>
+          <div class="col-12 col-xl-4 ms-xl-4 w-100 justify-content-center">
+            <div class="products_btn me-5 pe-4 product1_btn m-4 d-flex justify-content-center" data-wow-offset="100">
+              <button class="an1Btn" type="submit" name="add" id="AddToCart">Comprar</button>
+            </div>
+          </div> 
+      </div>
+    </div>
+    
+  </div>
+
+
+</form>
+</div>
+<br><br><br>
+
+<br><br><br><br>
+
+
+<script>
+  
+var url = String(window.location);
+var result = url.split("?");
+  
+  try{
+    var quantity = result[2].split("quantity=");
+  }catch(error){
+    var quantity = [0,2];
+  }
+  
+/*
+  try{
+     var redirect = result[3].split("url=");
+  }catch(error){
+     var redirect = "";
+  }
+ */
+
+document.getElementById("Quantity").value = quantity[1];
+  
+//REDIRECCIÓN PARA EL FORMULARIO DE SUSCRIPCIÓN
+//  if(redirect[1] == "redirect"){
+    $('#AddToCart').trigger('click');
+//  }
+
+</script>
+

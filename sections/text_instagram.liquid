@@ -1,0 +1,42 @@
+<div class="textInstagram d-flex flex-column justify-content-center text-center w-100">
+  <a href="https://www.instagram.com/crudog_/">
+    <h3>
+    {{ section.settings.text1 }}
+    </h3>
+    <h4><span style="color:#5480EB;">
+      {{ section.settings.text2 }}
+     </span></h4>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "text heading",
+  "settings": [
+{
+	"type": "text",
+	"id": "text1",
+	"label": "Texto 1",
+	"default": "Síguenos en @crudog_"
+},
+{
+	"type": "text",
+	"id": "text2",
+	"label": "Texto 2",
+	"default": "#Becrudog"
+}
+],
+  "presets": [
+    {
+      "name": "text heading",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

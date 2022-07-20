@@ -1,0 +1,79 @@
+<div class="sell-points">
+ 
+  <h4>Encuentranos en</h4>
+  
+  <span>
+  
+    <a href="{{ section.settings.url1 }}" class="dir1">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo1.png?v=1656041488">
+      <div class="square">
+        <p>Av. Washington<br> No. 2152</p>
+      </div>
+    </a>
+
+    <a href="{{ section.settings.url2 }}" class="dir2">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo1.png?v=1656041488">
+      <div class="square">
+        <p>Av. López Mateos<br> Sur 5565</p>
+      </div>
+    </a>
+
+    <a href="{{ section.settings.url3 }}" class="dir3">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo1.png?v=1656041488">
+      <div class="square">
+        <p>Av. Arboledas <br>No. 2500</p>
+      </div>
+    </a>
+
+    <a href="{{ section.settings.url4 }}" class="dir4">
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo2.png?v=1656041488">
+      <div class="square">
+        <p>Av. López <br>Mateos 660</p>
+      </div>
+    </a>
+    
+  </span>
+  
+ <!-- <img class="font" src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/font.png?v=1656041488">  
+-->
+</div>
+
+{% schema %}
+{
+  "name": "sell points",
+  "settings": [
+{
+	"type": "text",
+	"id": "url1",
+	"label": "Url 1"
+},
+{
+	"type": "text",
+	"id": "url2",
+	"label": "Url 2"
+},
+{
+	"type": "text",
+	"id": "url3",
+	"label": "Url 3"
+},
+{
+	"type": "text",
+	"id": "url4",
+	"label": "Url 4"
+}
+],
+  "presets": [
+    {
+      "name": "sell points",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,129 @@
+
+  <footer>
+    <div class="d-flex flex-md-row flex-column justify-content-around align-items-center align-items-md-start">
+      <div></div>
+      <div>
+        {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url}}" class="logo_footer" loading="lazy">
+        {% else %}
+        <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo_crudog.png?v=1651267479" class="logo_footer" loading="lazy">
+        {%- endif -%}
+        <p class="mt-4">{{ section.settings.eslogan }}</p>
+      </div>
+
+     <div class="social-icons d-block d-md-none">
+        <a href="https://www.facebook.com/Crudog-100208899143317">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/crudog_">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+      </div>
+
+      <div class="wow bounceIn">
+        <h5>{{ section.settings.footer_heading1 }}</h5><br>
+        <div class="row">
+          <div class="col-6 col-md-12">
+            <a href="/#conocenos">Conócenos</a> <br>
+            <a href="/pages/productos">Productos</a> <br>
+          </div>
+          <div class="col-6 col-md-12">
+            <a href="/pages/contact">Contacto</a> <br>
+            <a href="/pages/suscribete">Suscríbete</a>
+          </div>
+
+        </div>
+      </div>
+      <div class="wow bounceIn">
+        <h5 class="mt-4 mt-md-0">{{ section.settings.footer_heading2 }}</h5>
+        <br>
+        <div>
+          {{ section.settings.footer_contact1 }} <br>
+          {{ section.settings.footer_contact2 }} <br>
+          {{ section.settings.footer_contact3 }}
+        </div>
+        <div class="wow bounceIn">
+          <div class="social-icons d-flex align-items-center mt-3 d-none d-md-block">
+            <a href="https://www.facebook.com/Crudog-100208899143317">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/crudog_">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <div class="copy d-flex flex-md-row flex-column justify-content-around align-items-center text-start mx-1 mx-md-5 mt-5">
+      <div class="d-none d-md-block"></div>
+      <div class="d-none d-md-block"></div>
+      <div>
+        Copyright © 2021 <span class="d-none d-sm-inline">|</span><br class="d-block d-sm-none"> Hecho con
+        <i class="fa-solid fa-heart"></i>
+        por
+        <a href="https://polimentes.com">
+          <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/polimentes.svg?v=1653662941">
+        </a>
+      </div>
+      <div class="mt-3 mt-md-0">
+        v1.0.0
+      </div>
+      <div class="d-none d-md-block"></div>
+    </div>
+  </footer>
+  
+  {% schema %}
+  {
+    "name": "footer",
+     "settings": [
+          {
+            "id": "eslogan",
+            "type": "text",
+            "label": "Text slogan",
+            "default": "Alimento congelado y balanceado <br> para tu mascota. HUMAN GRADE"
+          },
+          {
+            "type": "image_picker",
+              "id": "logo",
+              "label": "Logo image"
+          },
+          {
+            "id": "footer_heading1",
+            "type": "text",
+            "label": "Heading 1",
+            "default": "Enlaces rápidos"
+          },
+          {
+            "id": "footer_heading2",
+            "type": "text",
+            "label": "Heading 2",
+            "default": "Contacto"
+          },
+          {
+            "id": "footer_contact1",
+            "type": "text",
+            "label": "Contact 1",
+            "default": "ventas@crudog.mx"
+          },
+          {
+            "id": "footer_contact2",
+            "type": "text",
+            "label": "Contact 2",
+            "default": "hola@crudog.mx"
+          },
+          {
+            "id": "footer_contact3",
+            "type": "text",
+            "label": "Contact 3",
+            "default": "+52 3314229193"
+          }
+    ],
+    "presets": [
+      {
+        "name": "footer",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}

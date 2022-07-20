@@ -1,0 +1,155 @@
+
+<div class="loginRegister mt-4 w-100 d-flex flex-column justify-content-center align-items-center">
+  
+	<div class="recover d-none">
+      
+      <h1 id="recover" tabindex="-1">
+        Recuperar contraseña
+      </h1>
+
+    {%- form 'recover_customer_password' -%}
+      {% assign recover_success = form.posted_successfully? %}
+      <div class="field">
+        <input type="email"
+          value=""
+          name="email"
+          id="RecoverEmail"
+          autocorrect="off"
+          autocapitalize="off"
+          autocomplete="email"
+          {% if form.errors %}
+            aria-invalid="true"
+            aria-describedby="RecoverEmail-email-error"
+            autofocus
+          {% endif %}
+          placeholder="Email" requied
+        >
+        <label for="RecoverEmail">
+         Recuperar email
+        </label>
+      </div>
+      {%- if form.errors -%}
+        <small id="RecoverEmail-email-error" class="form__message">
+           <div class="alert alert-danger">
+              <strong>Error<strong> <p>{{ form.errors.messages['form'] }}</p>
+          </div>      
+        </small>
+      {%- endif -%}
+
+      <button class="btn btn-warning">
+        Iniciar sesión
+      </button>
+
+      <a href="#login">
+        Cancelar
+      </a>
+    {%- endform -%}
+  </div>
+
+  <h1 id="login">
+    Login
+  </h1>
+  <div class="d-flex flex-column justify-content-center align-items-center w-100">
+    {%- if recover_success == true -%}
+      <p class="form__message" autofocus>
+          <div class="alert alert-success">
+            <strong>¡Éxito!<strong> <p>Se ha recuperado correctamente</p>
+        </div>
+        </p>
+    {%- endif -%}
+    {%- form 'customer_login', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <p class="form__message" autofocus>
+          <span class="visually-hidden">Error </span>
+          <div class="alert alert-danger">
+            <strong>Error<strong> <p>{{ form.errors | default_errors }}</p>
+        </div>
+        </p>
+        
+      {%- endif -%}
+
+      <div class="mb-3 field flex-column">
+        <label for="CustomerEmail">
+          Email
+        </label>
+        <input
+          type="email"
+          name="customer[email]"
+          id="CustomerEmail"
+          autocomplete="email"
+          autocorrect="off"
+          {% if form.errors contains 'form' %}
+            aria-invalid="true"
+          {% endif %}
+          placeholder="Ingresa tu email" requied
+        >
+      </div>
+
+      {%- if form.password_needed -%}
+        <div class="field mb-3 flex-column">
+          <label for="CustomerPassword">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            value=""
+            name="customer[password]"
+            id="CustomerPassword"
+            autocomplete="current-password"
+            {% if form.errors contains 'form' %}
+              aria-invalid="true"
+            {% endif %}
+            placeholder="Ingresa tu contraseña"
+          >
+        </div>
+
+        <a class="btn-recover d-none" href="#recover">
+          Recuperar contraseña
+        </a>
+      {%- endif -%}
+          
+          <br>
+          
+      <div class="w-100 text-center">
+        <button class="an1Btn">
+          Iniciar sesión
+        </button>
+
+            <br><br>
+
+        <a class="btn-register" href="{{ routes.account_register_url }}">
+          Registrarse
+        </a>
+      </div>
+          
+  {%- endform -%}
+  </div>
+  
+  {%- if shop.checkout.guest_login -%}
+    <div>
+      <hr>
+      <h2>Entrar como invitado</h2>
+
+      {%- form 'guest_login' -%}
+        <button>
+          Entrar
+        </button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>
+
+    
+
+{% schema %}
+{
+  "name": "login",
+  "settings": [
+],
+  "presets": [
+    {
+      "name": "login"
+    }
+  ]
+}
+{% endschema %}

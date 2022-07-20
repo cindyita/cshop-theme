@@ -1,0 +1,223 @@
+{%- style -%}
+	body {background-color: #f5f3ed;}
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+.form-contact {
+            text-align: center;
+			width:50%;
+            padding:50px;
+			margin-top:20px;
+        }
+        .form-contact div {
+            padding:15px;
+        }
+        .form-contact label {
+            padding-bottom:10px;
+            font-size: 15pt;
+        }
+        .form-contact input, .form-contact textarea {
+            border: 0;
+            border-radius: 25px;
+            padding:10px;
+            background-color: beige;
+        }
+ .form-contact button {
+            padding:10px 60px 10px;
+            border-radius: 35px;
+            font-size: 17pt;
+        }
+@media screen and (max-width: 550px) {
+  .form-contact {
+              width:95%;
+              padding:5px;
+          }
+}
+{%- endstyle -%}
+
+<div class="d-flex justify-content-center">
+  <div class="form-contact contact page-width page-width--narrow section-{{ section.id }}-padding">
+    <h2 class="title title-wrapper--no-top-margin {{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+    {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+      
+      <div class="contact__fields">
+        <div class="field">
+          
+          <label class="field__label" for="ContactForm-name">Name</label><br>
+          <input class="field__input form-control" autocomplete="name" type="text" id="ContactForm-name" name="contact[name]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="name">
+          
+        </div>
+        <div class="field field--with-error">
+          
+          <label class="field__label" for="ContactForm-email">Email <span aria-hidden="true">*</span></label><br>
+          <input
+            autocomplete="email"
+            type="email"
+            id="ContactForm-email"
+            class="field__input form-control"
+            name="contact[email]"
+            spellcheck="false"
+            autocapitalize="off"
+            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+            aria-required="true"
+            {% if form.errors contains 'email' %}
+              aria-invalid="true"
+              aria-describedby="ContactForm-email-error"
+            {% endif %}
+            placeholder="Email"
+          >
+          
+          {%- if form.errors contains 'email' -%}
+            <small class="contact__field-error" id="ContactForm-email-error">
+              <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+              <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+            </small>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="field">
+        
+        <label class="field__label" for="ContactForm-phone">Phone</label><br>
+        <input type="tel" id="ContactForm-phone" class="field__input form-control" autocomplete="tel" name="contact[phone]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="phone">
+        
+      </div>
+      <div class="field">
+        
+        <label class="form__label field__label" for="ContactForm-body">Comment</label><br>
+        <textarea
+          rows="10"
+          id="ContactForm-body"
+          class="text-area field__input form-control"
+          name="contact[comment]"
+          placeholder="comment"
+        >
+          {{- form.body -}}
+        </textarea>
+        
+      </div>
+      <div class="contact__button">
+        <button type="submit" class="button btn btn-warning">
+          Enviar
+        </button>
+      </div>
+    {%- endform -%}
+    
+    {%- if form.posted_successfully? -%}
+        <div class="form-status form-status-list form__message" tabindex="-1" autofocus>{% render 'icon-success' %} Success</div>
+      {%- elsif form.errors -%}
+        <div class="form__message">
+          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>{% render 'icon-error' %} Error</h2>
+        </div>
+        <ul class="form-status-list caption-large" role="list">
+          <li>
+            <a href="#ContactForm-email" class="link">
+              {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+            </a>
+          </li>
+        </ul>
+      {%- endif -%}
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact form shopify",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h0",
+          "label": "h0"
+        }
+      ],
+      "default": "h1",
+      "label": "heading size"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "color 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "color 2"
+        },
+        {
+          "value": "background-1",
+          "label": "background 1"
+        },
+        {
+          "value": "background-2",
+          "label": "background 2"
+        },
+        {
+          "value": "inverse",
+          "label": "inverse"
+        }
+      ],
+      "default": "background-1",
+      "label": "color scheme"
+    },
+    {
+      "type": "header",
+      "content": "header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "contact-form"
+    }
+  ]
+}
+{% endschema %}

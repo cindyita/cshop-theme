@@ -1,0 +1,163 @@
+
+<div data-aos="fade-up" class="section2 text-center">
+
+  <h2 class="wow fadeIn" data-wow-offset="200">¿Cómo funciona 
+    <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/logo.png?v=1651267479">?
+  </h2>
+
+  <div class="mt-4 pt-3 mt-lg-5 pt-lg-4 d-flex flex-column flex-md-row justify-content-center align-items-center">
+
+    <div class="section2_elements2 wow bounceInUp">
+      
+      {%- if section.settings.icon1 != blank -%}
+      <img src="{{ section.settings.icon1 | image_url}}">
+      {% else %}
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/s2_1.png?v=1651267479">
+      {%- endif -%}
+      
+      <h5>
+        {{ section.settings.icon1_heading }}
+        
+      </h5>
+      <p>
+        {{ section.settings.icon1_text }}
+        
+      </p>
+    </div>
+    <div class="section2_elements2 wow bounceInUp" data-wow-offset="200" data-wow-delay="0.2s">
+      
+      {%- if section.settings.icon2 != blank -%}
+      <img src="{{ section.settings.icon2 | image_url}}">
+      {% else %}
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/s2_2.png?v=1651267479">
+      {%- endif -%}
+      
+      <h5>
+        {{ section.settings.icon2_heading }}
+        
+      </h5>
+      <p>
+        {{ section.settings.icon2_text }}
+        
+      </p>
+    </div>
+    <div class="section2_elements2 wow bounceInUp" data-wow-offset="200" data-wow-delay="0.3s">
+      
+      {%- if section.settings.icon3 != blank -%}
+      <img src="{{ section.settings.icon3 | image_url}}">
+      {% else %}
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/s2_3.png?v=1651267479">
+      {%- endif -%}
+      
+      <h5>
+        {{ section.settings.icon3_heading }}
+        
+      </h5>
+      <p>
+        {{ section.settings.icon3_text }}
+        
+      </p>
+    </div>
+    <div class="section2_elements2_2 wow bounceInUp" data-wow-offset="200" data-wow-delay="0.4s">
+      
+      {%- if section.settings.icon4 != blank -%}
+      <img src="{{ section.settings.icon4 | image_url}}">
+      {% else %}
+      <img src="https://cdn.shopify.com/s/files/1/0639/0264/6525/files/s2_4.png?v=1651267479">
+      {%- endif -%}
+      
+      <h5>
+        {{ section.settings.icon4_heading }}
+        
+      </h5>
+      <p>
+        {{ section.settings.icon4_text }}
+        
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+{% schema %}
+{
+  "name": "section2",
+  "settings": [
+{
+  	"type": "image_picker",
+    "id": "icon1",
+    "label": "Icono 1"
+},
+{
+  	"type": "image_picker",
+    "id": "icon2",
+    "label": "Icono 2"
+},
+{
+  	"type": "image_picker",
+    "id": "icon3",
+    "label": "Icono 3"
+},
+{
+  	"type": "image_picker",
+    "id": "icon4",
+    "label": "Icono 4"
+},
+{
+  	"type": "text",
+    "id": "icon1_heading",
+    "label": "Icono 1 Cabecera",
+	"default": "Conoce el alimento <br> ideal para tu mascota"
+},
+{
+  	"type": "text",
+    "id": "icon2_heading",
+    "label": "Icono 2 Cabecera",
+	"default": "Preparación"
+},
+{
+  	"type": "text",
+    "id": "icon3_heading",
+    "label": "Icono 3 Cabecera",
+	"default": "Entrega en un día"
+},
+{
+  	"type": "text",
+    "id": "icon4_heading",
+    "label": "Icono 4 Cabecera",
+	"default": "Listo para comer"
+},
+{
+  	"type": "text",
+    "id": "icon1_text",
+    "label": "Icono 1 Descripción",
+	"default": "Completa el cuestionario <br> y elige el plan que más <br> te favorezca."
+},
+{
+  	"type": "text",
+    "id": "icon2_text",
+    "label": "Icono 2 Descripción",
+	"default": "Preparamos la comida <br> para tu canino, de <br> la mejor calidad."
+},
+{
+  	"type": "text",
+    "id": "icon3_text",
+    "label": "Icono 3 Descripción",
+	"default": "Lo enviamos en nuestro <br> Crudog-van a la dirección <br> indicada."
+},
+{
+  	"type": "text",
+    "id": "icon4_text",
+    "label": "Icono 4 Descripción",
+	"default": "¡Fresco y listo para <br> tu mejor amiga/o!"
+}
+],
+  	"presets": [
+    {
+      "name": "section2",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
