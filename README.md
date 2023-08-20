@@ -1,1 +1,1 @@
-# crudog theme custom shopify by cindy ita
+# Custom theme shopify
